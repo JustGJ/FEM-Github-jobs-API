@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2? family = Kumbh + Sans: wght @ 300; 400; 700 & display = swap');
+
+$font-1 : 'Kumbh Sans', sans-serif;
+
+$primary-1 : #9e7f66;       // Violet
+$primary-2 : #939BF4;       // Light Violet
+$primary-3 : #19202D;       // Very dark blue
+$primary-4 : #121721;       // Midnight
+
+$secondary-1 : #FFFFFF;     // White
+$secondary-2 : #F4F6F8;     // Light Grey
+$secondary-3 : #9DAEC2;     // Grey
+$secondary-4 : #6E8098;     // Dark Grey
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-1;
+  font-size: 1rem;
+  line-height: 1.625rem;
+  margin: 0 auto;
+}

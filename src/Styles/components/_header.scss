@@ -1,0 +1,52 @@
+.header {
+    background-image: url(../../assets/desktop/bg-pattern-header.svg);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    height: 10rem;
+   
+    &__title {
+        color: $secondary-1;
+        font-size: 1.8rem;
+        padding: 2.8125rem 0rem 5.3125rem 10.3125rem;
+        font-weight: 600;
+    }
+    &__darkMode {
+        width: 3rem;
+        display: flex;
+        align-items: center;
+        margin: 2.875rem 15.3125rem 5.75rem 0;
+
+        .checkbox {
+            display: none;
+
+            &:checked + label .ball {           // == Lorsque c'est checked, cible uniquement .ball
+                transform: translateX(20px);
+            }
+        }
+        .label {
+            position: relative;
+            display: block;
+            width: 48px;
+            height: 24px;
+            padding: 5px 8px;
+            background-color: #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            transform: scale(1.2);
+            box-shadow: 2px 1px 1px #333;
+            margin: 0 1rem;
+
+            .ball {
+                position: absolute;
+                background: #5964E0;     
+                border-radius: 50%;
+                height: 15px;
+                width: 15px;
+                top: .23rem;
+                transform: (translateX(0px));     // Pour que la boule se balade sur l'axe des X   
+                transition: transform 0.4s cubic-bezier(.45, -1.12, .35,1.78) ; 
+            }
+        }
+    }
+}
