@@ -1,21 +1,22 @@
 .header {
-    background-image: url(../../assets/desktop/bg-pattern-header.svg);
-    background-repeat: no-repeat;
+    position: relative;
     display: flex;
+    align-items: center;
+    background: no-repeat url(../../assets/desktop/bg-pattern-header.svg);
     justify-content: space-between;
-    height: 10rem;
+    padding: 2.8125rem 10.3125rem 5.625rem 10.3125rem ;
    
     &__title {
         color: $secondary-1;
         font-size: 1.8rem;
-        padding: 2.8125rem 0rem 5.3125rem 10.3125rem;
         font-weight: 600;
     }
-    &__darkMode {
+    &__toggle {
+        position: relative;
         width: 3rem;
         display: flex;
         align-items: center;
-        margin: 2.875rem 15.3125rem 5.75rem 0;
+        right: 4rem;
 
         .checkbox {
             display: none;
@@ -48,5 +49,19 @@
                 transition: transform 0.4s cubic-bezier(.45, -1.12, .35,1.78) ; 
             }
         }
+    }
+}
+
+// == Tablet
+@media screen and (max-width : 769px) {
+    .header {
+        padding: 2.625rem 2.5rem 5.375rem 2.5rem ;
+    }
+}
+
+// == Mobile
+@media screen and (max-width : 375px) {
+    .header {
+        padding: 2.125rem 1.5rem 4.625rem 1.5rem ;
     }
 }

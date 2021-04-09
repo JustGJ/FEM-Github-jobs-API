@@ -8,7 +8,7 @@ const Header = () => {
         <>
             <div className="header" >
                 <p className="header__title">devjobs</p>
-                <div className="header__darkMode">
+                <div className="header__toggle">
                     <img src={Sun} alt={Sun} />
                     <div>
                         <input type="checkbox" className="checkbox" id="dark-mode" />
