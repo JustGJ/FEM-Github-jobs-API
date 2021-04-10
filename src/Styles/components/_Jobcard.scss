@@ -1,0 +1,47 @@
+.job__board__card {
+    // position: relative;
+    width: 21.875rem;
+    background-color: $secondary-1;
+    border-radius: 5px;
+    padding: 0 20px 0px;
+    // min-height: 228px;
+    margin: 0 30px 45px 0;
+
+    .card {
+        &__image__container {
+            display: flex;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 10px;
+            transform: translateY(-50%);
+
+            img {
+                max-width: 100%
+            };
+
+            .no-logo {
+                // @include display-align-justify(flex, center, center);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(190, 190, 190);
+                border-radius: 10px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+        &__time-type, &__company {
+            color : $secondary-4;
+        }
+        &__title {
+            padding: 0.8125rem 0;
+            font-size: 1.25rem;
+        }
+        &__location {
+            padding: 1.225rem 0 1rem 0;
+            font-size: 0.875rem;
+        }
+    }
+}

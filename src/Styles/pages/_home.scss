@@ -1,0 +1,15 @@
+.home__page {
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+
+    .page {
+        &__jobBoard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            // align-items: center;
+            margin-top: 7.4375rem;
+        }
+    }
+}
