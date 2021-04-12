@@ -22,10 +22,7 @@
             };
 
             .no-logo {
-                // @include display-align-justify(flex, center, center);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                @include display-align-justify(flex, center, center);
                 background-color: rgb(190, 190, 190);
                 border-radius: 10px;
                 width: 50px;

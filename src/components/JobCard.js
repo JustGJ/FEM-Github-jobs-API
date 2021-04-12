@@ -8,7 +8,7 @@ const Card = (props) => {
         <>
             <div className="job__board__card">
                 <div className="card__image__container">
-                    {props.logo && <img src={props.logo} alt={props.logo}/> }
+                    {props.logo && <img src={props.logo} alt={props.logo} /> }
                     {!props.logo && <div className="no-logo">N / A</div> }
                 </div>
                 <p className="card__time-type">

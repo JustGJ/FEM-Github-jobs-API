@@ -1,0 +1,15 @@
+.button {
+    display: block;
+    margin: 0 auto;
+    background-color: #5964E0;
+    color: $secondary-1;
+    padding: 1rem 1.875rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:focus {outline:0;}
+    &:hover {background-color: #939BF4;}
+}
+

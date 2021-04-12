@@ -26,12 +26,12 @@ body {
   line-height: 1.625rem;
   margin: 0 auto;
   background-color: #F2F2F2;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 
 @mixin display-align-justify($display, $align, $justify) {
   display: $display;
-  align: $align;
+  align-items: $align;
   justify-content: $justify;
 }
