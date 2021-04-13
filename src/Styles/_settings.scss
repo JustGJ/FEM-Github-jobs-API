@@ -13,6 +13,12 @@ $secondary-2 : #F4F6F8;     // Light Grey
 $secondary-3 : #9DAEC2;     // Grey
 $secondary-4 : #6E8098;     // Dark Grey
 
+@mixin display-align-justify($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -30,8 +36,3 @@ body {
 }
 
 
-@mixin display-align-justify($display, $align, $justify) {
-  display: $display;
-  align-items: $align;
-  justify-content: $justify;
-}

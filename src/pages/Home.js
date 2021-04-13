@@ -3,35 +3,34 @@ import SearchBar from '../components/SearchBar';
 import JobCard from '../components/JobCard';
 import axios from 'axios';
 import Button from '../components/Button';
+import LoadingCard from '../components/LoadingCard';
 
 const Home = () => {
 
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [resultLength, setResultLength] = useState();
-    const [searchURL, setSearchURL] = useState('');
     const [error, setError] = useState(null);
     const [anotherPage, setAnotherPage] = useState(1);
-    // const BASE_URL = `https://cors.bridged.cc/https://jobs.github.com/positions`;
+    const [loadCard, setLoadCard] = useState(null);
 
     // == Appel API
-    useEffect(() => {     
-        // setLoading(true)
-        // let loadMore = BASE_URL.search('page');          // Retourne:"?page=...
-          axios.get(`https://cors.bridged.cc/https://jobs.github.com/positions.json?page=${anotherPage}`)
-            .then(res => {
-                const test = [...data]
-                res.data.forEach(job => {
-                    // console.log(job);
-                    test.push(job)
-                });
-                setData(test)
-                setLoading(false)
-            })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            }) 
+    useEffect(() => {    
+        setLoading(true);
+
+        axios.get(`https://cors.bridged.cc/https://jobs.github.com/positions.json?page=${anotherPage}`)
+        .then(res => {
+            const jobs = [...data]
+            res.data.forEach(job => {
+                jobs.push(job)
+            });
+
+            setData(jobs)
+            setLoading(false)
+        })
+        .catch(error => {
+            setError(error);
+            setLoading(false);
+        }) 
     }, [anotherPage])
         
   
@@ -66,6 +65,7 @@ const Home = () => {
         }
     }
 
+
     const loadMore = () => {
         setAnotherPage(anotherPage + 1 )
         setLoading(true)
@@ -81,6 +81,7 @@ const Home = () => {
                 {
                     data.map(job => {
                     return (
+                       
                         <JobCard
                             key={job.id}
                             logo = {job.company_logo}
@@ -89,17 +90,28 @@ const Home = () => {
                             title = {job.title}
                             company = {job.company}
                             location = {job.location}
-                        />   
+                        />                   
                     )})
+                }
+                {
+                   
+                    loading && 
+                    <>
+                        <LoadingCard />
+                        <LoadingCard />
+                        <LoadingCard />
+                        <LoadingCard />
+                        <LoadingCard />
+                        <LoadingCard />
+                    </>
                 }
             </div>
             {
-                loading 
-                ? <div>Loading...</div> 
-                : <Button clic={loadMore}>Load More</Button>
+                !loading && <Button clic={loadMore}>Load More</Button>    
             }
         </div>
     );
 };
 
 export default Home;
+
