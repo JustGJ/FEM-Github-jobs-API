@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
-
     
     return (
         <>
@@ -16,7 +16,7 @@ const Card = (props) => {
                     <span className="card__type">{props.type}</span>
                 </p>
             
-                <h3 className="card__title">{props.title}</h3>
+                <Link to={`/job/${props.id}`} props={props}><h3 className="card__title">{props.title}</h3></Link> 
                 <span className="card__company">{props.company}</span>
                 <h4 className="card__location">{props.location}</h4>
             </div>
