@@ -1,10 +1,12 @@
 .job__board__card {
     position: relative;
-    width: 21.875rem;
+    width: 20.875rem;
+    // width: 21.875rem;
     background-color: $secondary-1;
     border-radius: 5px;
     padding: 0 20px 0px;
-    margin: 0 30px 45px 0;
+    margin: 1.575rem 1.175rem 2.0625rem 1.075rem;
+    // margin: 1.575rem 1.175rem 2.0625rem 1.075rem;
 
     .card {
         &__image__container {
@@ -34,6 +36,7 @@
         &__title {
             padding: 0.8125rem 0;
             font-size: 1.25rem;
+            cursor: pointer;
         }
         &__location {
             padding: 1.225rem 0 1rem 0;
@@ -42,3 +45,12 @@
         }
     }
 }
+
+
+// == Passage mode tablette
+@media screen and (max-width : 1110px) {
+    .job__board__card {
+        justify-content: center;
+    }
+}
+

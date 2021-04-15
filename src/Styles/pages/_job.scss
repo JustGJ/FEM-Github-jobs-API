@@ -1,0 +1,113 @@
+.job__details {
+  max-width: 45.625rem;
+  margin: 0 auto 4.5rem;
+  background-color: #F2F2F2;
+
+    &__header {
+      display: flex; 
+      align-items: center;
+      background-color: $secondary-1;
+      border-radius: 6px;
+      margin: 0 auto;
+      height: 8.75rem;
+      transform: translateY(-50px);
+    
+      .header {
+        &__image__container {
+          max-width: 140px;
+          max-height: 140px;
+          border-radius: 5px;
+          overflow: hidden;
+                
+          img {
+            max-width: 100%;
+          }
+        } 
+        &__textbox {
+          display: flex;
+          width: 100%;
+          align-items: center;
+          justify-content: space-between;
+          padding: 2.625rem 2.5625rem;
+
+          &__inner {
+            width: 46%;
+          }
+          &__heading {
+            color: $primary-3;
+          }   
+          &__site {
+            margin-top: 0.8125rem;            
+          }   
+      }  
+    }
+  }  
+  &__body {
+    transform: translateY(-50px);
+    padding: 3rem 2.6875rem 3rem 3rem;
+    background-color: $secondary-1;
+    margin-top: 2rem ;
+    border-radius: 5px;
+
+    .body {
+
+      &__heading__content {
+        margin-bottom: 2.5rem ;
+      }
+
+      &__heading__content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      &__heading__time, &__heading__type {
+        color : $secondary-4;
+      }
+      &__heading__title {
+        font-size: 1.75rem;
+        margin-top: .5rem ;
+      }
+      &__heading__location {
+        font-size: 0.875rem;
+        font-weight: 700;
+        margin-top: .5rem;
+        color: #5964E0;
+      }
+      &__main {
+
+        p {
+          margin: 20px 0;
+          color : $secondary-4 ;
+        }
+      }
+    }
+  } 
+  &__apply {
+    background: url("../../assets/desktop/bg-pattern-detail-footer.svg");
+    color: $secondary-1;
+    border-radius: 5px;
+    padding: 2.5rem 2.6875rem 2.5625rem 3rem;
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    div {
+      font-weight: 400;
+    }
+    a {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// == Tablet
+@media screen and (max-width : 769px) {
+  .job__details {
+      // width: 43.0625rem;
+  }
+ 
+}

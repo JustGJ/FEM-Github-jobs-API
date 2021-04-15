@@ -1,15 +1,36 @@
 .button {
-    display: block;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto;
     background-color: #5964E0;
-    color: $secondary-1;
-    padding: 1rem 1.875rem;
+    min-width: 148px;
+    height: 48px;
     border-radius: 5px;
-    font-weight: 700;
     font-size: 1rem;
     cursor: pointer;
 
     &:focus {outline:0;}
+}
+
+.loadMore {
+    color: $secondary-1;
     &:hover {background-color: #939BF4;}
 }
 
+.companySite {
+    background-color: rgba(	201, 201, 201, .5);
+    color: #5964E0;
+    font-weight: 700;
+    border: none;
+
+    &:hover {background-color: rgba(89,100,224, .4);}
+}
+
+.applyNow {
+    color: $secondary-1;
+    font-weight: 700;
+
+    &:hover {background-color: #939BF4;}
+}

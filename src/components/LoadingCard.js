@@ -7,8 +7,8 @@ const LoadingCard = () => {
         <div className="card__loading">
             <ContentLoader 
                 speed={2}
-                width={350}
-                height={228}
+                width={334}
+                height={241}
                 viewBox="0 0 400 160"
                 backgroundColor="#b1b1b1"
                 foregroundColor="#ecebeb"                

@@ -9,7 +9,6 @@
         color: $secondary-1;
         font-size: 1.8rem;
         font-weight: 600;
-        // color: rgb(95, 95, 95)
     }
     &__toggle {
         position: relative;
@@ -52,16 +51,18 @@
     }
 }
 
-// == Tablet
 @media screen and (max-width : 769px) {
     .header {
+        background: url('../../assets/tablet/bg-pattern-header.svg');
         padding: 2.625rem 2.5rem 5.375rem 2.5rem ;
     }
 }
 
+
 // == Mobile
 @media screen and (max-width : 375px) {
     .header {
-        padding: 2.125rem 1.5rem 4.625rem 1.5rem ;
+        padding: 2.125rem 1.5rem 4.625rem 1.5rem;
+        background: url('../../assets/mobile/bg-pattern-header.svg');
     }
 }

@@ -1,23 +1,32 @@
 .home__page {
     position: relative;
-    max-width: 1140px;
+    max-width: 1110px;
     margin: 0 auto;
 
     .page {
         &__jobBoard {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-start;
-            // align-items: center;
             margin-top: 7.4375rem;
         }
     }
 }
 
 .card__loading {
-    width: 21.875rem;
+    width: 20.875rem;
     background-color: $secondary-1;
     border-radius: 5px;
     padding: 0 20px 0px;
-    margin: 0 30px 45px 0;
+    margin: 1.575rem 1.175rem 2.0625rem 1.075rem;
+}
+
+
+
+// == Tablet
+@media screen and (max-width : 1110px) {
+    .page__jobBoard {
+        margin-top: 3rem  !important;
+        justify-content: center;
+    }
+   
 }

@@ -23,16 +23,25 @@ $secondary-4 : #6E8098;     // Dark Grey
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: $font-1;
+}
+
+html {
+  width: 100vw;
 }
 
 body {
-  max-width: 1440px;
-  font-family: $font-1;
+  max-width: 90rem;
   font-size: 1rem;
   line-height: 1.625rem;
   margin: 0 auto;
   background-color: #F2F2F2;
-  // overflow-x: hidden;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 

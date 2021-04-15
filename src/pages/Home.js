@@ -4,6 +4,7 @@ import JobCard from '../components/JobCard';
 import axios from 'axios';
 import Button from '../components/Button';
 import LoadingCard from '../components/LoadingCard';
+import time from '../components/utils/time';
 
 const Home = () => {
 
@@ -11,9 +12,8 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [anotherPage, setAnotherPage] = useState(1);
-    const [loadCard, setLoadCard] = useState(null);
 
-    // == Appel API
+    // == Call API
     useEffect(() => {    
         setLoading(true);
 
@@ -34,43 +34,20 @@ const Home = () => {
     }, [anotherPage])
         
   
-
-    const time = (now, previous) => {
-
-        let msPerMinute = 60 * 1000,
-            msPerHour = msPerMinute * 60,
-            msPerDay = msPerHour * 24,
-            msPerMonth = msPerDay * 30,
-            msPerYear = msPerMonth * 365,
-            elapsed = now - previous;
-
-        if (elapsed < msPerMinute) {
-            return Math.round(elapsed / 1000) + ` seconds ago`; 
-        } else if (elapsed < msPerHour){
-            return Math.round(elapsed / msPerHour) !== 1 
-                ? Math.round(elapsed / msPerMinute) + ` minutes ago`   
-                : Math.round(elapsed / msPerMinute) + ` minute ago`;
-        } else if (elapsed < msPerDay){
-            return Math.round(elapsed / msPerHour) !== 1
-                ? Math.round(elapsed / msPerHour) + ' hours ago'
-                : Math.round(elapsed / msPerHour) + ' hour ago'
-        } else if (elapsed < msPerMonth){
-            return Math.round(elapsed / msPerDay) !== 1     
-                ? Math.round(elapsed / msPerDay) + ' days ago'
-                : Math.round(elapsed / msPerDay) + ' day ago'
-        } else {
-            return Math.round(elapsed / msPerYear) !== 1
-                ? Math.round(elapsed / msPerYear) + ' years ago'
-                : Math.round(elapsed / msPerYear) + ' year ago'
-        }
-    }
-
-
+    //  == Load next page
     const loadMore = () => {
         setAnotherPage(anotherPage + 1 )
         setLoading(true)
     }
-
+   
+    // == Load card
+    const loadingCard = () => {
+        const loadCard = []
+        for(let i = 0; i < 6; i++){
+            loadCard.push(<LoadingCard key={i} />)
+        }
+        return loadCard;
+    }
     
 
     return (
@@ -83,7 +60,8 @@ const Home = () => {
                     return (
                        
                         <JobCard
-                            key={job.id}
+                            key = {job.id}
+                            id = {job.id}
                             logo = {job.company_logo}
                             created = {time(Date.now(), Date.parse(job.created_at))}
                             type = {job.type}
@@ -94,24 +72,16 @@ const Home = () => {
                     )})
                 }
                 {
-                   
-                    loading && 
-                    <>
-                        <LoadingCard />
-                        <LoadingCard />
-                        <LoadingCard />
-                        <LoadingCard />
-                        <LoadingCard />
-                        <LoadingCard />
-                    </>
+                    loading && loadingCard()
                 }
             </div>
             {
-                !loading && <Button clic={loadMore}>Load More</Button>    
+                !loading && <Button typeBtn="loadMore" clic={loadMore}>Load More</Button>    
             }
         </div>
     );
 };
 
 export default Home;
+
 
