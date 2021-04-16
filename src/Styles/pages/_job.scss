@@ -9,18 +9,20 @@
       background-color: $secondary-1;
       border-radius: 6px;
       margin: 0 auto;
-      height: 8.75rem;
+      height: 140px;
       transform: translateY(-50px);
     
       .header {
         &__image__container {
+          display: flex;
+          align-items: center;
           max-width: 140px;
           max-height: 140px;
-          border-radius: 5px;
-          overflow: hidden;
                 
           img {
-            max-width: 100%;
+            width: 100%;
+            border-radius: 5px;
+            max-height: 140px;
           }
         } 
         &__textbox {
@@ -52,14 +54,12 @@
     .body {
 
       &__heading__content {
-        margin-bottom: 2.5rem ;
-      }
-
-      &__heading__content {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 2.5rem ;
+
       }
       &__heading__time, &__heading__type {
         color : $secondary-4;
@@ -95,19 +95,66 @@
     }
     div {
       font-weight: 400;
+      // width: 200px;
     }
     a {
-      font-weight: 700;
+      font-weight: 400;
       text-decoration: underline;
+      word-wrap: break-word;
     }
   }
 }
 
-
-// == Tablet
-@media screen and (max-width : 769px) {
+// == Mobil
+@media screen and (max-width : 550px) {
   .job__details {
-      // width: 43.0625rem;
+    max-width: 20.4375rem ;
+
+    &__header {
+      display: flex;
+      flex-direction: column;
+      min-height: 14.375rem;
+      transform: translateY(-13px);
+      margin-bottom: 4.5rem;
+
+      .header {
+        &__image__container {
+          width: 50px;
+          height: 50px;
+          transform: translateY(-20px);
+          img {
+            max-height: 50px; 
+            max-width: 50px;           
+          }
+        }
+        &__textbox {
+          flex-direction: column;
+          padding: 1.5rem 2.5625rem;
+          
+          &__inner {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+          }
+          &__heading {
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+    .body {
+    
+      &__heading__content {
+        flex-direction: column;    
+        
+        .applyNow {
+          width: 17.4375rem;
+          margin-top: 2rem;
+        }
+      }
+      &__heading__title {
+        font-size: 20px;
+      } 
+    }
   }
- 
 }
