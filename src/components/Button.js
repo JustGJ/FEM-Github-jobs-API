@@ -6,7 +6,7 @@ const Button = ( {children, clic, typeBtn }) => {
 
     return (
         <>
-            <button className={css} onClick={clic}>{children}</button>
+            <button type="submit" className={css} onClick={clic}>{children}</button>
         </>
     );
 };

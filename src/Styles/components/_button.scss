@@ -10,12 +10,12 @@
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
+    color: $secondary-1;
 
     &:focus {outline:0;}
 }
 
 .loadMore {
-    color: $secondary-1;
     &:hover {background-color: #939BF4;}
 }
 
@@ -29,8 +29,11 @@
 }
 
 .applyNow {
-    color: $secondary-1;
     font-weight: 700;
 
     &:hover {background-color: #939BF4;}
+}
+
+.search {
+    min-width: 80px;
 }

@@ -1,12 +1,10 @@
 .job__board__card {
     position: relative;
-    width: 20.875rem;
-    // width: 21.875rem;
+    width: 21.875rem;
     background-color: $secondary-1;
     border-radius: 5px;
     padding: 0 20px 0px;
-    margin: 1.575rem 1.175rem 2.0625rem 1.075rem;
-    // margin: 1.575rem 1.175rem 2.0625rem 1.075rem;
+    margin: 1.575rem 0 2.0625rem 0;
 
     .card {
         &__image__container {
@@ -48,9 +46,20 @@
 
 
 // == Passage mode tablette
-@media screen and (max-width : 1110px) {
+@media screen and (max-width : 1070px) {
     .job__board__card {
-        justify-content: center;
+        width: 21.1875rem;
     }
 }
+
+// == Passage mode mobile
+@media screen and (max-width : 380px) {
+    .job__board__card {
+        width: 20.4375rem;
+    }
+}
+
+
+
+
 

@@ -49,10 +49,15 @@ const Home = () => {
         return loadCard;
     }
     
+    const handleFilter = (title, location, fullTime) => {
+        console.log(title);
+        console.log(location);
+        console.log(fullTime);
+    }
 
     return (
         <div className="home__page">
-            <SearchBar />
+            <SearchBar filter={handleFilter} />
 
             <div className="page__jobBoard">
                 {
