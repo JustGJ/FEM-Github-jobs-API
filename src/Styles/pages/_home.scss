@@ -13,16 +13,6 @@
     }
 }
 
-.card__loading {
-    width: 21.875rem;
-    background-color: $secondary-1;
-    border-radius: 5px;
-    padding: 0 20px 0px;
-    margin: 1.575rem 0 2.0625rem;
-}
-
-
-
 // ==  Passage mode Tablette
 @media screen and (max-width : 1070px) {
     .home__page {
@@ -31,9 +21,6 @@
     .page__jobBoard {
         margin-top: 3rem  !important;
     }
-    .card__loading {
-        width:21.1875rem
-    }
 }
 
 // == Passage mode mobile
@@ -41,9 +28,6 @@
     .page__jobBoard {
         flex-direction: column;
         align-items: center;
-    }
-    .card__loading {
-        width: 20.875rem;
     }
 }
 

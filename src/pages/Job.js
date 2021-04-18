@@ -15,7 +15,7 @@ const Job = (props) => {
             setJob(res.data);
         })
       
-    }, [])
+    }, [params.id])
 
 
     return (
