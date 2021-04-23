@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2? family = Kumbh + Sans: wght @ 300; 400; 700 & display = swap');
 
 $font-1 : 'Kumbh Sans', sans-serif;
@@ -13,6 +12,27 @@ $secondary-2 : #F4F6F8;     // Light Grey
 $secondary-3 : #9DAEC2;     // Grey
 $secondary-4 : #6E8098;     // Dark Grey
 
+@mixin shimmerBase($keyframes){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: $keyframes 1.5s infinite;
+}
+
+@mixin width-height-radius-bgColor($width, $height, $Bradius, $bgColor) {
+  width: $width;
+  height: $height;
+  border-radius: $Bradius;
+  background-color: $bgColor;
+}
+
+@mixin display-align($display, $align) {
+  display: $display;
+  align-items: $align;
+}
+
 @mixin display-align-justify($display, $align, $justify) {
   display: $display;
   align-items: $align;
@@ -24,10 +44,6 @@ $secondary-4 : #6E8098;     // Dark Grey
   margin: 0;
   padding: 0;
   font-family: $font-1;
-}
-
-html {
-  width: 100vw;
 }
 
 body {

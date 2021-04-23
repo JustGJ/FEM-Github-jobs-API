@@ -4,18 +4,16 @@
   background-color: #F2F2F2;
 
     &__header {
-      display: flex; 
-      align-items: center;
+      @include display-align(flex, center);
       background-color: $secondary-1;
       border-radius: 6px;
-      margin: 0 auto;
+      margin: 0 auto 50px auto;
       height: 140px;
       transform: translateY(-50px);
     
       .header {
         &__image__container {
-          display: flex;
-          align-items: center;
+          @include display-align(flex, center);
           max-width: 140px;
           max-height: 140px;
                 
@@ -26,10 +24,8 @@
           }
         } 
         &__textbox {
-          display: flex;
+          @include display-align-justify(flex, center, space-between);
           width: 100%;
-          align-items: center;
-          justify-content: space-between;
           padding: 2.625rem 2.5625rem;
 
           &__inner {
@@ -48,18 +44,17 @@
     transform: translateY(-50px);
     padding: 3rem 2.6875rem 3rem 3rem;
     background-color: $secondary-1;
-    margin-top: 2rem ;
     border-radius: 5px;
 
+    a {
+      word-wrap: break-word
+    }
     .body {
 
       &__heading__content {
+        @include display-align-justify(flex, center, space-between);
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         margin-bottom: 2.5rem ;
-
       }
       &__heading__time, &__heading__type {
         color : $secondary-4;
@@ -95,13 +90,19 @@
     }
     div {
       font-weight: 400;
-      // width: 200px;
     }
     a {
       font-weight: 400;
       text-decoration: underline;
       word-wrap: break-word;
     }
+  }
+}
+
+// == Tablet
+@media screen and (max-width : 768px) {
+  .job__details {
+    max-width: 43.0625rem;
   }
 }
 
@@ -129,7 +130,7 @@
         }
         &__textbox {
           flex-direction: column;
-          padding: 1.5rem 2.5625rem;
+          padding: 1.5rem 2.5625rem 2rem 2.5625rem;
           
           &__inner {
             width: 100%;
@@ -143,7 +144,7 @@
       }
     }
     .body {
-    
+
       &__heading__content {
         flex-direction: column;    
         

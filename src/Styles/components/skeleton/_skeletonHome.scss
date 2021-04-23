@@ -1,0 +1,41 @@
+.skeleton {
+    @include width-height-radius-bgColor(21.875rem, 15.0625rem, 5px, $secondary-1);
+    position: relative;
+    padding: 0 20px 0px;
+    margin-bottom: 4.0625rem;
+
+    &__home {
+      
+      &__logo {
+        @include width-height-radius-bgColor(50px, 50px, 15px, #a3a3a3);
+        transform: translateY(-23px);
+      }
+  
+      &__text1 {
+        @include width-height-radius-bgColor(55%, 16px, 4px, #a3a3a3);
+      }
+  
+      &__title {
+        @include width-height-radius-bgColor(80%, 20px, 4px, #a3a3a3);
+        margin: 13px 0 17px 0;
+      }
+  
+      &__text2 {
+        @include width-height-radius-bgColor(45%, 16px, 4px, #a3a3a3);
+      }
+  
+      &__text3 {
+        @include width-height-radius-bgColor(35%, 14px, 4px, #a3a3a3);
+        margin-top: 35px;
+      }
+    } 
+}
+
+@media screen and (max-width : 1110px) {
+    .skeleton {
+      width: 21.1875rem;
+    }
+  }
+  
+  
+  

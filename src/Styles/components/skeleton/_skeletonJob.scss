@@ -1,0 +1,105 @@
+.skeleton__job {
+
+    &__header {
+        @include width-height-radius-bgColor(100%, 8.75rem, 6px, $secondary-1);
+        @include display-align(flex, center);
+        position: relative;
+        transform: translateY(-50px);
+        margin: 0 auto
+    } 
+    &__logo {
+        @include width-height-radius-bgColor(8.75rem, 8.75rem, 6px, #a3a3a3);
+    }
+    &__text1 {
+        @include width-height-radius-bgColor(200px, 20px, 6px, #a3a3a3);
+        margin-left: 40px;
+    }
+    &__button1 {
+        @include width-height-radius-bgColor(147px, 48px, 6px, #EEEFFC);
+        position: absolute;
+        right: 6%
+    }
+    
+    &__body {
+        @include width-height-radius-bgColor(100%, 1000px, 6px, $secondary-1);
+        position: relative;
+        padding: 48px 43px 48px 48px;
+
+        &__header {
+            @include display-align(flex, center);
+            margin-bottom: 40px;
+        }
+        &__content {
+            position: relative;
+        }
+    } 
+    &__button2 {
+        @include width-height-radius-bgColor(147px, 48px, 6px, #EEEFFC);
+        position: absolute;
+        right: 6%
+    }
+    &__text2 {
+        @include width-height-radius-bgColor(152px, 15px, 6px, #a3a3a3);
+    }
+    &__text3 {
+        @include width-height-radius-bgColor(100%, 20px, 6px, #a3a3a3);
+        margin-top: 8px;
+    }
+    &__text4 {
+        @include width-height-radius-bgColor(120px, 15px, 6px, #a3a3a3);
+        margin-top: 8px;
+    }
+    &__text5 {
+        @include width-height-radius-bgColor(90.5%, 15px, 6px, #a3a3a3);
+        margin-top: 20px;
+    }
+    &__text6 {
+        @include width-height-radius-bgColor(81%, 15px, 6px, #a3a3a3);
+        margin-top: 20px;
+    }
+
+    &__footer {
+        @include width-height-radius-bgColor(100%, 259px, 6px, #5964E0);
+        position: relative;
+        margin-top: 20px;
+        padding: 40.46px 43px 41.54px 48px;
+    }
+}
+
+
+@media screen and (max-width : 580px) {
+    .skeleton__job {
+
+        &__header {
+            transform: translateY(-12px);
+            margin-bottom: 24px;
+            height: 14.375rem;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        &__logo {
+            transform: translateY(-25px);
+            height: 50px;
+            width: 50px;
+        }
+        &__text1 {
+            margin-left: 0;
+        }
+
+        &__body {
+
+            &__header {
+                flex-direction: column;
+            }
+        }
+        &__button2 {
+            position: static;
+            margin-top: 32px;
+            width: 100%;
+        }
+        &__button1{
+            position: static;
+            margin-bottom: 32px;
+        }
+    }
+}

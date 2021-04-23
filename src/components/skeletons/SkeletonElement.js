@@ -1,8 +1,8 @@
  import React from 'react';
  
- const SkeletonElement = ( {type} ) => {
+ const SkeletonElement = ( {type, typeLoader} ) => {
 
-    const classes = `skeleton__${type}`
+    const classes = `skeleton__${typeLoader}__${type}`;
 
      return (
          <div className={classes}></div>

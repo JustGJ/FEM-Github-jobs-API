@@ -1,19 +1,19 @@
 .job__board__card {
     position: relative;
-    width: 21.875rem;
+    max-width: 21.875rem;
+    min-height: 14.25rem ;
     background-color: $secondary-1;
-    border-radius: 5px;
-    padding: 0 20px 0px;
-    margin: 1.575rem 0 2.0625rem 0;
+    border-radius: 0.3125rem;
+    padding: 0 1.25rem 0;
+    margin-bottom: 4.0625rem;
 
     .card {
         &__image__container {
-            display: flex;
-            align-items: center;
-            width: 50px;
-            height: 50px;
+            @include display-align(flex, center);
+            width: 3.125rem;
+            height: 3.125rem;
             overflow: hidden;
-            border-radius: 10px;
+            border-radius: 0.625rem;
             transform: translateY(-50%);
 
             img {
@@ -23,9 +23,9 @@
             .no-logo {
                 @include display-align-justify(flex, center, center);
                 background-color: rgb(190, 190, 190);
-                border-radius: 10px;
-                width: 50px;
-                height: 50px;
+                border-radius: 0.625rem;
+                width: 3.125rem;;
+                height: 3.125rem;
             }
         }
         &__time-type, &__company {
@@ -44,21 +44,11 @@
     }
 }
 
-
-// == Passage mode tablette
-@media screen and (max-width : 1070px) {
+@media screen and (max-width : 689px) {
     .job__board__card {
-        width: 21.1875rem;
+        margin-bottom: 3.0625rem;
     }
 }
-
-// == Passage mode mobile
-@media screen and (max-width : 380px) {
-    .job__board__card {
-        width: 20.4375rem;
-    }
-}
-
 
 
 

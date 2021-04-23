@@ -3,42 +3,50 @@ import SearchBar from '../components/SearchBar';
 import JobCard from '../components/JobCard';
 import axios from 'axios';
 import Button from '../components/Button';
-import LoadingCard from '../components/LoadingCard';
 import time from '../components/utils/time';
 
-import SkeletonCardHome from '../components/skeletons/SkeletonCardHome';
+import SkeletonHome from '../components/skeletons/SkeletonHome';
 
 
 
 const Home = () => {
 
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);                   
+    const [loading, setLoading] = useState(false);         
     const [error, setError] = useState(null);
-
     const [anotherPage, setAnotherPage] = useState(1);
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [fullTime, setFullTime] = useState(false);
-
-    const [final, setFinal] = useState({
-        finalDescription: '',
-        finalLocation: '',
-        finalFullTime: 'false'
-      })
-
-
+    const [final, setFinal] = useState({description: '', location: '', fullTime: ''})
     const URL_BASE = 'https://cors.bridged.cc/https://jobs.github.com/positions.json';
+    const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}`
 
     // == Call API
     useEffect(() => {    
         setLoading(true);
-        const jobs = [...data];
+        let jobs = [...data];
 
-        axios.get(`${URL_BASE}?page=${anotherPage}&description=${final.finalDescription}&location=${final.finalLocation}&full_time=${final.finalFullTime}`)
-        .then(res => {
-            res.data.forEach(job => {
-                if(jobs.findIndex(j => j.id === job.id )=== -1) jobs.push(job)
+        (final.description || final.location || final.fullTime !== '') 
+        // == FILTER
+        ?   axios.get(`${URL_FILTER}`)
+            .then(res => {
+                jobs = [];
+                res.data.forEach(job => {
+                    jobs.push(job)
+                });
+                setData(jobs)
+                setLoading(false)
+            })
+            .catch(error => {
+                setError(error);
+                setLoading(false);
+            }) 
+        // == Full PAGE
+        :   axios.get(`${URL_BASE}?page=${anotherPage}`)
+            .then(res => {
+                res.data.forEach(job => { 
+                if(jobs.findIndex(j => j.id === job.id ) === -1) jobs.push(job)     
             });
 
             setData(jobs)
@@ -48,7 +56,6 @@ const Home = () => {
             setError(error);
             setLoading(false);
         }) 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [anotherPage, final])
         
   
@@ -63,16 +70,13 @@ const Home = () => {
     const finalSearch = (e) => {
         e.preventDefault()
         setFinal({
-            finalDescription: description,
-            finalLocation: location,
-            finalFullTime: fullTime ? "on" : "off"
-
+            description: description,
+            location: location,
+            fullTime: fullTime ? "on" : "off"
         })
 
     }
     
-    // console.log(final)
-
     return (
         <div className="home__page">
             <SearchBar 
@@ -105,7 +109,7 @@ const Home = () => {
                 }
                 {
                     
-                    loading && [1,2,3,4,5,6].map(n => <SkeletonCardHome key={n} />)
+                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} />)
 
                 }
             </div>
@@ -117,6 +121,3 @@ const Home = () => {
 };
 
 export default Home;
-
-
-                    {/* loading && loadingCard() */}

@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Card = (props) => {
     
+    const [loading, setLoading] = useState('loading')
+   
+    const handleImageLoaded = () => {
+        setLoading("loaded")
+      }
+
+     
+
     return (
         <>
             <div className="job__board__card">
                 <div className="card__image__container">
-                    {props.logo && <img src={props.logo} alt={props.logo} /> }
-                    {!props.logo && <div className="no-logo">N / A</div> }
+                    {
+                        props.logo 
+                        ? 
+                        <>
+                            <img onLoad={handleImageLoaded} src={props.logo} alt={props.logo} /> 
+                            {loading}
+                        </>
+                        : 
+                        <div className="no-logo">N / A</div> 
+                    }
                 </div>
                 <p className="card__time-type">
                     <span className="card__time">{props.created}</span>

@@ -11,29 +11,23 @@
     font-size: 1rem;
     cursor: pointer;
     color: $secondary-1;
-
+    font-weight: 700;
+    border: none;
     &:focus {outline:0;}
-}
-
-.loadMore {
-    &:hover {background-color: #939BF4;}
 }
 
 .companySite {
     background-color: rgba(	201, 201, 201, .5);
     color: #5964E0;
-    font-weight: 700;
-    border: none;
-
-    &:hover {background-color: rgba(89,100,224, .4);}
 }
 
-.applyNow {
-    font-weight: 700;
-
+.loadMore, .applyNow, .search, .companySite {
     &:hover {background-color: #939BF4;}
 }
 
 .search {
-    min-width: 80px;
+    min-width: 80px ;
 }
+
+
+

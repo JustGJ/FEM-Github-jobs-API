@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Shimmer = () => {
+const Shimmer = ( { type }) => {
+
+    const classe = `shimmer__${type}`;
+
     return (
-        <div className="shimmer-wrapper">
-            <div className="shimmer"></div>
+        <div className={`shimmer__wrapper__${type}`}>
+            <div className={classe}></div>
         </div>
     );
 };
