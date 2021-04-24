@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/FEM-Github-jobs-API/static/css/main.badc8f9d.chunk.css",
-    "main.js": "/FEM-Github-jobs-API/static/js/main.42fa0413.chunk.js",
-    "main.js.map": "/FEM-Github-jobs-API/static/js/main.42fa0413.chunk.js.map",
+    "main.css": "/FEM-Github-jobs-API/static/css/main.118f2e18.chunk.css",
+    "main.js": "/FEM-Github-jobs-API/static/js/main.ff88d23c.chunk.js",
+    "main.js.map": "/FEM-Github-jobs-API/static/js/main.ff88d23c.chunk.js.map",
     "runtime-main.js": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js",
     "runtime-main.js.map": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js.map",
-    "static/js/2.40b426b9.chunk.js": "/FEM-Github-jobs-API/static/js/2.40b426b9.chunk.js",
-    "static/js/2.40b426b9.chunk.js.map": "/FEM-Github-jobs-API/static/js/2.40b426b9.chunk.js.map",
+    "static/js/2.20eb2b20.chunk.js": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js",
+    "static/js/2.20eb2b20.chunk.js.map": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.map",
     "index.html": "/FEM-Github-jobs-API/index.html",
-    "static/css/main.badc8f9d.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.badc8f9d.chunk.css.map",
-    "static/js/2.40b426b9.chunk.js.LICENSE.txt": "/FEM-Github-jobs-API/static/js/2.40b426b9.chunk.js.LICENSE.txt",
+    "static/css/main.118f2e18.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.118f2e18.chunk.css.map",
+    "static/js/2.20eb2b20.chunk.js.LICENSE.txt": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/FEM-Github-jobs-API/static/media/bg-pattern-header.f3307602.svg",
     "static/media/icon-filter.2471816d.svg": "/FEM-Github-jobs-API/static/media/icon-filter.2471816d.svg",
     "static/media/icon-location.325ff3d9.svg": "/FEM-Github-jobs-API/static/media/icon-location.325ff3d9.svg",
@@ -19,8 +19,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fd17c771.js",
-    "static/js/2.40b426b9.chunk.js",
-    "static/css/main.badc8f9d.chunk.css",
-    "static/js/main.42fa0413.chunk.js"
+    "static/js/2.20eb2b20.chunk.js",
+    "static/css/main.118f2e18.chunk.css",
+    "static/js/main.ff88d23c.chunk.js"
   ]
 }
