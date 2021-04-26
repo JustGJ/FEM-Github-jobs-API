@@ -1,32 +1,32 @@
 // == Animations home card
-.shimmer__wrapper__normal {
-    @include shimmerBase(loadingNormal);
-}
+// .shimmer__wrapper__normal {
+//     @include shimmerBase(loadingNormal);
+// }
 
-.shimmer__wrapper__special {
-  @include shimmerBase(loadingSpecial);
-}
+// .shimmer__wrapper__special {
+//   @include shimmerBase(loadingSpecial);
+// }
 
-.shimmer__normal, .shimmer__special {
-    position: relative;
-    width: 50%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: skewX(-20deg);
-    box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
-}
+// .shimmer__normal, .shimmer__special {
+//     position: relative;
+//     width: 50%;
+//     height: 100%;
+//     // background: rgba(255, 255, 255, 0.1);
+//     transform: skewX(-20deg);
+//     box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+// }
 
-@keyframes loadingNormal {
-  0% { transform: translateX(-150%) }
-  50% { transform: translateX(-60%) }
-  100% { transform: translateX(150%) }
-}
+// @keyframes loadingNormal {
+//   0% { transform: translateX(-150%) }
+//   50% { transform: translateX(-60%) }
+//   100% { transform: translateX(150%) }
+// }
 
-@keyframes loadingSpecial {
-  0% { transform: translateX(0%) }
-  50% { transform: translateX(45%) }
-  100% { transform: translateX(5%) }
-}
+// @keyframes loadingSpecial {
+//   0% { transform: translateX(0%) }
+//   50% { transform: translateX(45%) }
+//   100% { transform: translateX(5%) }
+// }
 
 
 

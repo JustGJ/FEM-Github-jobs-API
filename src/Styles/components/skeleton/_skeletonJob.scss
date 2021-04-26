@@ -1,7 +1,7 @@
 .skeleton__job {
 
     &__header {
-        @include width-height-radius-bgColor(100%, 8.75rem, 6px, $secondary-1);
+        @include width-height-radius-bgColor(100%, 8.75rem, 6px, var(--white));
         @include display-align(flex, center);
         position: relative;
         transform: translateY(-50px);
@@ -21,7 +21,7 @@
     }
     
     &__body {
-        @include width-height-radius-bgColor(100%, 1000px, 6px, $secondary-1);
+        @include width-height-radius-bgColor(100%, 1000px, 6px, var(--white));
         position: relative;
         padding: 48px 43px 48px 48px;
 

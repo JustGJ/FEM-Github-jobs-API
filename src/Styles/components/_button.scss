@@ -10,23 +10,34 @@
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    color: $secondary-1;
+    color: var(--white);
     font-weight: 700;
     border: none;
     &:focus {outline:0;}
 }
 
 .companySite {
-    background-color: rgba(	201, 201, 201, .5);
-    color: #5964E0;
-}
-
-.loadMore, .applyNow, .search, .companySite {
-    &:hover {background-color: #939BF4;}
+    background-color: var(--company--site--btn);
+    color: var(--company--site--txt);
+    &:hover {
+        background-color: var(--company--site--hover);
+    }
 }
 
 .search {
-    min-width: 80px ;
+    min-width: 123px !important;
+    padding: 16px 35.5px;
+}
+
+.loadMore, .applyNow, .search {
+    &:hover {background-color: var(--light--violet);}
+}
+
+@media screen and (max-width : 1110px) {
+   .search {
+       min-width: 80px !important;
+       margin-left: 28px;
+   }
 }
 
 

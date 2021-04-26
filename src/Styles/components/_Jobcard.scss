@@ -2,7 +2,7 @@
     position: relative;
     max-width: 21.875rem;
     min-height: 14.25rem ;
-    background-color: $secondary-1;
+    background-color: var(--main--base);
     border-radius: 0.3125rem;
     padding: 0 1.25rem 0;
     margin-bottom: 4.0625rem;
@@ -29,12 +29,18 @@
             }
         }
         &__time-type, &__company {
-            color : $secondary-4;
+
+            color : #6E8098;
         }
         &__title {
+            color: var(--heading);
             padding: 0.8125rem 0;
             font-size: 1.25rem;
             cursor: pointer;
+
+            &:hover {
+                color: rgb(110, 125, 152);
+            }
         }
         &__location {
             padding: 1.225rem 0 1rem 0;

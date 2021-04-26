@@ -1,18 +1,32 @@
 .skeleton {
-    @include width-height-radius-bgColor(21.875rem, 15.0625rem, 5px, $secondary-1);
+    @include width-height-radius-bgColor(21.875rem, 15.0625rem, 5px, var(--main--base));
     position: relative;
     padding: 0 20px 0px;
     margin-bottom: 4.0625rem;
 
     &__home {
       
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        animation: loadingNormal 1.5s infinite;
+        // transform: translateY(-40px);
+        background-color: rgba(25,32,45,.5);    
+        box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
+
+      }
       &__logo {
         @include width-height-radius-bgColor(50px, 50px, 15px, #a3a3a3);
         transform: translateY(-23px);
       }
   
       &__text1 {
-        @include width-height-radius-bgColor(55%, 16px, 4px, #a3a3a3);
+        @include width-height-radius-bgColor(55%, 16px, 4px, var(--skeleton));
       }
   
       &__title {
@@ -37,5 +51,17 @@
     }
   }
   
-  
-  
+
+  @keyframes loadingNormal {
+    0% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.01); }
+    25% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05); }
+    50% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.09); }
+    75% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05); }
+    100% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.01);  }
+  }
+
+//   @keyframes loadingNormal {
+//   0% { transform: translateX(-150%) }
+//   50% { transform: translateX(-60%) }
+//   100% { transform: translateX(150%) }
+// }

@@ -1,24 +1,26 @@
 .searchBar {
     @include display-align-justify(flex, center, space-between);
     height: 5rem;
-    background-color: $secondary-1;
+    background-color: var(--main--base);
     border-radius: 0.375rem;
     padding: 0 1rem 0 1.5rem;
     transform: translateY(-2.1875rem);
-		color: $primary-3;
 
     img {
         height: 1.5rem;
     }
     
     input {
-      width: 100%;
+      background-color: var(--main--base);
+      color: var(--heading);
       border: none;
       padding: 1.75rem 0 1.75rem 1rem;
       outline: none;
     }
     label {
         margin-left: 1rem ;
+        display: flex;
+        align-items: center;
     }
 
     div {
@@ -27,43 +29,68 @@
     
     &__description {
 			width: 28.9375rem;
-      border-right: 1px solid #E9ECEF;
+      border-right: 1px solid var(--border--search);
+      input{
+        width: 100%;
+      }
     }
     &__location {
 			width: 18.75rem;
-			border-right: 1px solid #E9ECEF;
+			border-right: 1px solid var(--border--search);
 			margin-left: 1.4375rem;
     }
 		&__fullTime {
+      width: 345px;
 			font-weight: 700;
 
-			input {
-				cursor: pointer;
-				width: 1.5rem;
-        padding: 1rem 2.1875rem;
-				height: 1.5rem;
-				color:  #E9ECEF;
-				opacity: .8;
-				margin-left: 1.625rem;   
-			}
       label {
-        width: 6.875rem;
-      }
-		
-		}
-		button {
-			width: 7.6875rem;
-      margin-left: 1.625rem;
-		}
-}
+        width: 100%;
+        margin-left: 32px;
 
-// A REVOIR !!
-input[type="checkbox"]{
-  // position: absolute;
-  // background-color: red;
-  // border: 1px solid red;
-  outline: none;
- }
+        div {
+          cursor: pointer;
+          height: 24px;
+          width: 24px;
+          background-color: var(--bg--checkbox);
+          border-radius: 3px;
+        }
+
+        input:checked {
+
+          + div {
+            background: center / auto no-repeat url('../../assets/desktop/icon-check.svg');
+            background-color: #5964E0;
+          }
+        }
+        span {
+          color: var(--heading);
+          margin-left:16px ;
+          width: 74%;
+        }
+      }    
+		}
+  }
+
+// == Tablet
+@media screen and (max-width : 1110px) {
+  .searchBar__description {
+    width: 222px;
+  }
+
+  .searchBar__location {
+    width: 213px;
+  }
+
+  .searchBar__fullTime {
+    width: 252px;
+    label {
+      margin-left: 20px ;
+    }
+    span {
+      width: 70px !important;
+    }
+  }
+}
 
  // == mobile
  @media screen and (max-width : 689px) {
@@ -71,18 +98,21 @@ input[type="checkbox"]{
      margin: 0 auto;
      width: 20.4375rem;
 
-    &__description {
-      border: none;
+      &__description {
+        border: none;
 
-      input {
-        padding: 0;
+        input {
+          padding: 0;
+        }
+      }
+      &__fullTime {
+        width: 30%;
+      }
+      &__location, &__fullTime label {
+        display: none !important;
       }
     }
-   }
-  .searchBar__location, .searchBar__fullTime {
-    display: none !important;
-  }
-}
+ }
 
 // == iphone 5, galaxy fold
 @media screen and (max-width : 327px) {
@@ -90,3 +120,5 @@ input[type="checkbox"]{
     width: 16.25rem;
   }
 }
+
+
