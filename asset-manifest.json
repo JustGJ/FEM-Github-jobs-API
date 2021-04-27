@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/FEM-Github-jobs-API/static/css/main.bed498b0.chunk.css",
-    "main.js": "/FEM-Github-jobs-API/static/js/main.c16fdb6e.chunk.js",
-    "main.js.map": "/FEM-Github-jobs-API/static/js/main.c16fdb6e.chunk.js.map",
+    "main.css": "/FEM-Github-jobs-API/static/css/main.1f60c9de.chunk.css",
+    "main.js": "/FEM-Github-jobs-API/static/js/main.35182544.chunk.js",
+    "main.js.map": "/FEM-Github-jobs-API/static/js/main.35182544.chunk.js.map",
     "runtime-main.js": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js",
     "runtime-main.js.map": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js.map",
     "static/js/2.20eb2b20.chunk.js": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js",
     "static/js/2.20eb2b20.chunk.js.map": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.map",
     "index.html": "/FEM-Github-jobs-API/index.html",
-    "static/css/main.bed498b0.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.bed498b0.chunk.css.map",
+    "static/css/main.1f60c9de.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.1f60c9de.chunk.css.map",
     "static/js/2.20eb2b20.chunk.js.LICENSE.txt": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/FEM-Github-jobs-API/static/media/icon-check.7b769ecf.svg",
     "static/media/icon-filter.2471816d.svg": "/FEM-Github-jobs-API/static/media/icon-filter.2471816d.svg",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.fd17c771.js",
     "static/js/2.20eb2b20.chunk.js",
-    "static/css/main.bed498b0.chunk.css",
-    "static/js/main.c16fdb6e.chunk.js"
+    "static/css/main.1f60c9de.chunk.css",
+    "static/js/main.35182544.chunk.js"
   ]
 }
