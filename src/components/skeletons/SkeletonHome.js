@@ -1,5 +1,4 @@
 import React from 'react';
-import Shimmer from './Shimmer';
 import SkeletonElement from './SkeletonElement';
 
 const SkeletonHome = () => {
@@ -13,7 +12,6 @@ const SkeletonHome = () => {
                 <SkeletonElement typeLoader = "home" type = "text2" />
                 <SkeletonElement typeLoader = "home" type = "text3" />
             </div>
-            <Shimmer type = "normal" />
         </div>
     );
 };

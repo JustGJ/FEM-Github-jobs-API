@@ -5,12 +5,13 @@ import iconFilter from '../assets/mobile/icon-filter.svg';
 import Button from '../components/Button';
 import { useMediaQuery } from 'react-responsive'
 
-const SearchBar = ( {description, location, fullTime, finalSearch, setDescription, setLocation, setFullTime }) => {
+const SearchBar = ( {description, location, fullTime, finalSearch, setDescription, setLocation, setFullTime, darkMode }) => {
 
     // == location and fullTime none
     const isTabletOrMobil = useMediaQuery({ query: '(max-width: 1110px)' });
     const isMobil = useMediaQuery({ query: '(max-width: 689px)' });
 
+    console.log(fullTime);
 
     return (
         <div className="searchBar">
@@ -35,23 +36,31 @@ const SearchBar = ( {description, location, fullTime, finalSearch, setDescriptio
                 />
             </div>
             <div className="searchBar__fullTime">
+              
+                <label htmlFor="fullTime" name="fullTime">
                 <input 
                     type="checkbox" 
                     id="fullTime" 
                     checked={fullTime} 
                     onChange={(e) => setFullTime(e.target.checked)}  
+                    hidden
                 />
-                <label htmlFor="fullTime" name="fullTime">Full Time Only</label>
-            </div>
-            {
-                isMobil ? 
-                <>
-                    <img src={iconFilter} alt="icon filter"/>
-                    <img src={iconSearch} style={{marginLeft : '1.5rem'}} onClick={finalSearch}  alt="icon Search"/>
-                </>
+                    {/* <div className={`${fullTime && "checked" }`}></div> */}
+                    <div></div>
+                    <span>{isTabletOrMobil ? "Full Time" : "Full Time Only"}</span>
+                </label>
+                {
+                    isMobil ? 
+                    <>
+                        <img src={iconFilter} alt="icon filter"/>
+                        <img src={iconSearch} style={{marginLeft : '1.5rem'}} onClick={finalSearch}  alt="icon Search"/>
+                    </>
 
-                : <Button clic={finalSearch} typeBtn="search">Search</Button> 
-            }
+                    : <Button clic={finalSearch} typeBtn="search">Search</Button> 
+                }
+            </div>
+           
+           
         </div>
     );
 };

@@ -9,7 +9,7 @@ import SkeletonHome from '../components/skeletons/SkeletonHome';
 
 
 
-const Home = () => {
+const Home = ( {darkMode, setDarkMode} ) => {
 
     const [data, setData] = useState([]);                   
     const [loading, setLoading] = useState(false);         
@@ -27,8 +27,8 @@ const Home = () => {
         setLoading(true);
         let jobs = [...data];
 
-        (final.description || final.location || final.fullTime !== '') 
         // == FILTER
+        (final.description || final.location || final.fullTime !== '') 
         ?   axios.get(`${URL_FILTER}`)
             .then(res => {
                 jobs = [];
@@ -74,12 +74,15 @@ const Home = () => {
             location: location,
             fullTime: fullTime ? "on" : "off"
         })
-
+        setDescription('');
+        setLocation('');
+        setFullTime('');
     }
     
     return (
         <div className="home__page">
             <SearchBar 
+                darkMode={darkMode} setDarkMode={setDarkMode}
                 description = {description}
                 location = {location}
                 fullTime = {fullTime}

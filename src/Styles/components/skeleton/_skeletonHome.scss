@@ -7,21 +7,10 @@
     &__home {
       
       &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        animation: loadingNormal 1.5s infinite;
-        // transform: translateY(-40px);
-        background-color: rgba(25,32,45,.5);    
-        box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05);
-
+       @extend %after;
       }
       &__logo {
-        @include width-height-radius-bgColor(50px, 50px, 15px, #a3a3a3);
+        @include width-height-radius-bgColor(50px, 50px, 15px, var(--skeleton));
         transform: translateY(-23px);
       }
   
@@ -30,16 +19,16 @@
       }
   
       &__title {
-        @include width-height-radius-bgColor(80%, 20px, 4px, #a3a3a3);
+        @include width-height-radius-bgColor(80%, 20px, 4px, var(--skeleton));
         margin: 13px 0 17px 0;
       }
   
       &__text2 {
-        @include width-height-radius-bgColor(45%, 16px, 4px, #a3a3a3);
+        @include width-height-radius-bgColor(45%, 16px, 4px, var(--skeleton));
       }
   
       &__text3 {
-        @include width-height-radius-bgColor(35%, 14px, 4px, #a3a3a3);
+        @include width-height-radius-bgColor(35%, 14px, 4px, var(--skeleton));
         margin-top: 35px;
       }
     } 
@@ -52,16 +41,11 @@
   }
   
 
-  @keyframes loadingNormal {
-    0% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.01); }
-    25% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05); }
-    50% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.09); }
-    75% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.05); }
-    100% { box-shadow: 0 0 30px 30px rgba(255, 255, 255, 0.01);  }
-  }
+@keyframes loading {
+  0% {background-color: rgba(var(--loading--home), var(--opacity1));}
+  25% {background-color: rgba(var(--loading--home), var(--opacity2));}
+  50% {background-color: rgba(var(--loading--home), var(--opacity3));} 
+  75% {background-color: rgba(var(--loading--home), var(--opacity4));}
+  100% {background-color: rgba(var(--loading--home), var(--opacity5));} 
+}
 
-//   @keyframes loadingNormal {
-//   0% { transform: translateX(-150%) }
-//   50% { transform: translateX(-60%) }
-//   100% { transform: translateX(150%) }
-// }

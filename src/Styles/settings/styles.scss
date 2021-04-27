@@ -1,0 +1,12 @@
+@import './variables';
+@import './mixin';
+@import './global';
+@import './theme';
+@import '../components/header';
+@import '../components/Jobcard';
+@import '../components/button';
+@import '../components/searchbar';
+@import '../components/skeleton/skeletonHome';
+@import '../components/skeleton/skeletonJob';
+@import '../pages/home';
+@import '../pages/job';

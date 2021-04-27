@@ -1,11 +1,11 @@
 .job__details {
   max-width: 45.625rem;
   margin: 0 auto 4.5rem;
-  background-color: #F2F2F2;
+  background-color: var(--bg);
 
     &__header {
       @include display-align(flex, center);
-      background-color: $secondary-1;
+      background-color : var(--main--base);
       border-radius: 6px;
       margin: 0 auto 50px auto;
       height: 140px;
@@ -32,9 +32,10 @@
             width: 46%;
           }
           &__heading {
-            color: $primary-3;
+            color: var(--heading);
           }   
           &__site {
+            color: #6E8098;
             margin-top: 0.8125rem;            
           }   
       }  
@@ -43,11 +44,11 @@
   &__body {
     transform: translateY(-50px);
     padding: 3rem 2.6875rem 3rem 3rem;
-    background-color: $secondary-1;
+    background-color : var(--main--base);
     border-radius: 5px;
 
     a {
-      word-wrap: break-word
+      word-wrap: break-word;
     }
     .body {
 
@@ -57,9 +58,10 @@
         margin-bottom: 2.5rem ;
       }
       &__heading__time, &__heading__type {
-        color : $secondary-4;
+        color: #6E8098;
       }
       &__heading__title {
+        color: var(--heading);
         font-size: 1.75rem;
         margin-top: .5rem ;
       }
@@ -73,14 +75,17 @@
 
         p {
           margin: 20px 0;
-          color : $secondary-4 ;
+          color : var(--text--job) ;
+        }
+        li {
+          color : var(--text--job) ;
         }
       }
     }
   } 
   &__apply {
     background: url("../../assets/desktop/bg-pattern-detail-footer.svg");
-    color: $secondary-1;
+    color: var(--white);
     border-radius: 5px;
     padding: 2.5rem 2.6875rem 2.5625rem 3rem;
 

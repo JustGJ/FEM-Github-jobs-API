@@ -1,30 +1,37 @@
 .skeleton__job {
 
     &__header {
-        @include width-height-radius-bgColor(100%, 8.75rem, 6px, var(--white));
+        @include width-height-radius-bgColor(100%, 8.75rem, 6px, var(--main--base));
         @include display-align(flex, center);
         position: relative;
         transform: translateY(-50px);
-        margin: 0 auto
+        margin: 0 auto;
+
+        &::after {
+            @extend %after;
+        }
     } 
     &__logo {
-        @include width-height-radius-bgColor(8.75rem, 8.75rem, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(8.75rem, 8.75rem, 6px, var(--skeleton));
     }
     &__text1 {
-        @include width-height-radius-bgColor(200px, 20px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(200px, 20px, 6px, var(--skeleton));
         margin-left: 40px;
     }
     &__button1 {
-        @include width-height-radius-bgColor(147px, 48px, 6px, #EEEFFC);
+        @include width-height-radius-bgColor(147px, 48px, 6px, var(--skeleton));
         position: absolute;
         right: 6%
     }
     
     &__body {
-        @include width-height-radius-bgColor(100%, 1000px, 6px, var(--white));
+        @include width-height-radius-bgColor(100%, 1000px, 6px, var(--main--base));
         position: relative;
         padding: 48px 43px 48px 48px;
 
+        &::after {
+            @extend %after;
+        }
         &__header {
             @include display-align(flex, center);
             margin-bottom: 40px;
@@ -34,27 +41,27 @@
         }
     } 
     &__button2 {
-        @include width-height-radius-bgColor(147px, 48px, 6px, #EEEFFC);
+        @include width-height-radius-bgColor(147px, 48px, 6px, var(--skeleton));
         position: absolute;
         right: 6%
     }
     &__text2 {
-        @include width-height-radius-bgColor(152px, 15px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(152px, 15px, 6px, var(--skeleton));
     }
     &__text3 {
-        @include width-height-radius-bgColor(100%, 20px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(100%, 20px, 6px, var(--skeleton));
         margin-top: 8px;
     }
     &__text4 {
-        @include width-height-radius-bgColor(120px, 15px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(120px, 15px, 6px, var(--skeleton));
         margin-top: 8px;
     }
     &__text5 {
-        @include width-height-radius-bgColor(90.5%, 15px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(90.5%, 15px, 6px, var(--skeleton));
         margin-top: 20px;
     }
     &__text6 {
-        @include width-height-radius-bgColor(81%, 15px, 6px, #a3a3a3);
+        @include width-height-radius-bgColor(81%, 15px, 6px, var(--skeleton));
         margin-top: 20px;
     }
 
@@ -63,10 +70,31 @@
         position: relative;
         margin-top: 20px;
         padding: 40.46px 43px 41.54px 48px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: block;
+            border-radius: 6px;
+            animation: loading 1.5s infinite;  
+            box-shadow: 0 0 0px 0px rgba(255, 255, 255, .01);
+        }
     }
 }
 
-
+@keyframes loading {
+    0% {background-color: rgba(var(--loading--home), var(--opacity1));}
+    25% {background-color: rgba(var(--loading--home), var(--opacity2));}
+    50% {background-color: rgba(var(--loading--home), var(--opacity3));} 
+    75% {background-color: rgba(var(--loading--home), var(--opacity4));}
+    100% {background-color: rgba(var(--loading--home), var(--opacity5));} 
+  }
+  
+  
 @media screen and (max-width : 580px) {
     .skeleton__job {
 

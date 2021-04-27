@@ -1,20 +1,24 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter,Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Job from './pages/Job';
 
 
-function App() {
-	
+const App = () => {
+
+const [darkMode, setDarkMode] = useState(false)
+
   return (
-    <Router>
-		<Header />
+    <BrowserRouter basename="/FEM-Github-jobs-API" >
+		<Header darkMode={darkMode} setDarkMode={setDarkMode}/>
 		<Switch>
-			<Route exact path="/" component={Home} />
+			<Route exact path="/">
+				<Home darkMode={darkMode} setDarkMode={setDarkMode} />
+			</Route>
 			<Route path="/job/:id" component={Job} />
 		</Switch>
-    </Router>
+    </BrowserRouter>
   );
 }
 
