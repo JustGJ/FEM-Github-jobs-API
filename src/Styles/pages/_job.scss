@@ -22,6 +22,14 @@
             border-radius: 5px;
             max-height: 140px;
           }
+
+          .no-logo {
+            @include display-align-justify(flex, center, center);
+            background-color: rgb(190, 190, 190);
+            border-radius: 5px;
+            width: 140px;
+            height: 140px;
+          }
         } 
         &__textbox {
           @include display-align-justify(flex, center, space-between);

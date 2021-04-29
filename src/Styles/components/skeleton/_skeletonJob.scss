@@ -87,13 +87,13 @@
 }
 
 @keyframes loading {
-    0% {background-color: rgba(var(--loading--home), var(--opacity1));}
-    25% {background-color: rgba(var(--loading--home), var(--opacity2));}
-    50% {background-color: rgba(var(--loading--home), var(--opacity3));} 
-    75% {background-color: rgba(var(--loading--home), var(--opacity4));}
-    100% {background-color: rgba(var(--loading--home), var(--opacity5));} 
+    0% {background-color: rgba(255, 255, 255, var(--opacity1));}
+    25% {background-color: rgba(255, 255, 255, var(--opacity2));}
+    50% {background-color: rgba(255, 255, 255, var(--opacity3));} 
+    75% {background-color: rgba(255, 255, 255, var(--opacity4));}
+    100% {background-color: rgba(255, 255, 255, var(--opacity5));} 
   }
-  
+
   
 @media screen and (max-width : 580px) {
     .skeleton__job {

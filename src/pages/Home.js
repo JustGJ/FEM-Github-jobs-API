@@ -18,7 +18,7 @@ const Home = ( {darkMode, setDarkMode} ) => {
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [fullTime, setFullTime] = useState(false);
-    const [final, setFinal] = useState({description: '', location: '', fullTime: ''})
+    const [final, setFinal] = useState({description: '', location: '', fullTime: 'off'})
     const URL_BASE = 'https://cors.bridged.cc/https://jobs.github.com/positions.json';
     const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}`
 
@@ -79,6 +79,33 @@ const Home = ( {darkMode, setDarkMode} ) => {
         setFullTime('');
     }
     
+    const handleResetDescription = () => {
+        setFinal({
+            description: "",
+            location: location,
+            fullTime: fullTime ? "on" : "off"
+        })
+    }
+
+    const handleResetLocation = () => {
+        setFinal({
+            description: description,
+            location: "",
+            fullTime: fullTime ? "on" : "off"
+        })
+    }
+
+    const handleResetFullTime = () => {
+        setFinal({
+            description : description,
+            location: location,
+            fullTime: "off"
+        })
+    }
+
+
+    console.log(description);
+    console.log(final);
     return (
         <div className="home__page">
             <SearchBar 
@@ -92,6 +119,14 @@ const Home = ( {darkMode, setDarkMode} ) => {
        
                 finalSearch = {finalSearch}
             />
+
+            
+                <div className="page__filter">
+                    {final.description && <span onClick={handleResetDescription}>{final.description}</span>}
+                    {final.location && <span onClick={handleResetLocation}>{final.location + ' x'}</span>}
+                    {final.fullTime !== 'off' && <span onClick={handleResetFullTime}>Only Full Time x</span>}
+                </div>
+            
 
             <div className="page__jobBoard">
                 {
@@ -107,7 +142,8 @@ const Home = ( {darkMode, setDarkMode} ) => {
                             title = {job.title}
                             company = {job.company}
                             location = {job.location}
-                        />                   
+                        />     
+                    
                     )})
                 }
                 {

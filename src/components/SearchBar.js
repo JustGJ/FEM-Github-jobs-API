@@ -10,9 +10,7 @@ const SearchBar = ( {description, location, fullTime, finalSearch, setDescriptio
     // == location and fullTime none
     const isTabletOrMobil = useMediaQuery({ query: '(max-width: 1110px)' });
     const isMobil = useMediaQuery({ query: '(max-width: 689px)' });
-
-    console.log(fullTime);
-
+    
     return (
         <div className="searchBar">
             <div className="searchBar__description">

@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const Card = (props) => {
+   
+    // const loading = <div>loding</div>
     
-    const [loading, setLoading] = useState('loading')
+    const [loading, setLoading] = useState([])
    
     const handleImageLoaded = () => {
-        setLoading("loaded")
-      }
+        // return (
+        //    setLoading('en cours')
+        // )
+    }
 
      
 
@@ -19,8 +25,9 @@ const Card = (props) => {
                         props.logo 
                         ? 
                         <>
+
                             <img onLoad={handleImageLoaded} src={props.logo} alt={props.logo} /> 
-                            {loading}
+                           
                         </>
                         : 
                         <div className="no-logo">N / A</div> 

@@ -7,12 +7,9 @@ html[data-theme="light"] {
     --bg--checkbox : rgba(var(--very--dark--blue), 0.1);
     --text--job : var(rgb(--dark--grey));
     --skeleton: #a3a3a3;
-    --loading--home : 255,255,255;
     --company--site--btn: rgba(89,100,224, .1);
     --company--site--txt: #5964E0;
     --company--site--hover : rgba(89,100,224, .35);
-    --loading--test: 0, .2, .3, .2, 0;
-    --loading--test: $value1, $value2, $value3, $value4, $value5;
     
     // == Opacity animation loading card
     --opacity1 : 0;
@@ -34,14 +31,11 @@ html[data-theme="dark"]{
     --company--site--btn: rgba(255, 255, 255, 0.1);
     --company--site--txt: var(--white);
     --company--site--hover : rgba(255,255,255, .25);
-    --loading--home : 255, 255, 255;
-    --loading--test: .0, .01, .03, .01, 0;
-    --loading--test: $value1, $value2, $value3, $value4, $value5;
 
     // == Opacity animation loading card
     --opacity1 : 0;
     --opacity2: .01;
-    --opacity3: .03;
+    --opacity3: .03; 
     --opacity4: .01;
     --opacitye5: 0;
 }

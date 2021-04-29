@@ -2,10 +2,10 @@
  
  const SkeletonElement = ( {type, typeLoader} ) => {
 
-    const classes = `skeleton__${typeLoader}__${type}`;
+    const classes = `wave skeleton__${typeLoader}__${type}`;
 
      return (
-         <div className={classes}></div>
+         <div style={{position: "relative", overflow:'hidden'} } className={classes}></div>
      );
  };
  
