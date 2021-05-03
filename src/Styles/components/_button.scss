@@ -33,12 +33,20 @@
     &:hover {background-color: var(--light--violet);}
 }
 
+.searchMobil {
+    width: 90%;
+    margin-top: 24px;
+}
+
+
 @media screen and (max-width : 1110px) {
    .search {
        min-width: 80px !important;
        margin-left: 28px;
    }
 }
+
+
 
 
 

@@ -13,19 +13,18 @@
         &__filter {
             display: flex;
             justify-content: center;
-            // background-color: aqua;
-            // width: 50% ;
             margin: 0 auto;
 
             span {
-                font-size: .8rem;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: .7rem;
                 background-color: #5964E0;
                 color: (var(--white));
                 border-radius: 10px;
                 padding: 2px .6rem;
                 margin-right: 8px;
-            }
-           
+            }   
         }
     }
 }

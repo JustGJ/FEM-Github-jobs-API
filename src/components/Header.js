@@ -5,12 +5,13 @@ import Moon from '../assets/desktop/icon-moon.svg';
 const Header = ( {darkMode, setDarkMode }) => {
 
     const htmlTag = document.body.parentElement;
-    console.log(htmlTag);
 
     useEffect(() => {
-        if (!localStorage.getItem('theme')) {
+        // if(localStorage.getItem('theme') === 'dark') setDarkMode(true);
+        // else setDarkMode(false);
+        if (!localStorage.getItem('theme')) {  // Renvoie la valeur associée à la clé passée en paramètre. Ici, si il n'y a pas de value, alors ...
             setDarkMode(true)
-            localStorage.setItem('theme', 'light')
+            localStorage.setItem('theme', 'light') // Ajoute nouveau stockage, ou modifie si existe déjà : key = theme, value = light
             htmlTag.setAttribute('data-theme', 'light')
         } else {
             htmlTag.setAttribute('data-theme', localStorage.getItem('theme'))
@@ -19,11 +20,11 @@ const Header = ( {darkMode, setDarkMode }) => {
 
     const switchTheme = () => {
         if (!darkMode) {
-            localStorage.setItem('theme', 'dark')
+            localStorage.setItem('theme', 'light')
             htmlTag.setAttribute('data-theme', localStorage.getItem('theme'))
             setDarkMode(true)
         } else {
-            localStorage.setItem('theme', 'light')
+            localStorage.setItem('theme', 'dark')
             htmlTag.setAttribute('data-theme', localStorage.getItem('theme'))
             setDarkMode(false)
         }

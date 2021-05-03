@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-const Card = (props) => {
+const JobCard = (props) => {
    
+    console.log(props.openModal);
     // const loading = <div>loding</div>
     
     const [loading, setLoading] = useState([])
@@ -15,11 +16,9 @@ const Card = (props) => {
         // )
     }
 
-     
-
-    return (
+     return (
         <>
-            <div className="job__board__card">
+            <div style={{zIndex: props.openModal ? '-1' : '0'}} className="job__board__card">
                 <div className="card__image__container">
                     {
                         props.logo 
@@ -48,6 +47,6 @@ const Card = (props) => {
     );
 };
 
-export default Card;
+export default JobCard;
 
 

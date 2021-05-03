@@ -9,7 +9,7 @@ import SkeletonHome from '../components/skeletons/SkeletonHome';
 
 
 
-const Home = ( {darkMode, setDarkMode} ) => {
+const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
 
     const [data, setData] = useState([]);                   
     const [loading, setLoading] = useState(false);         
@@ -18,9 +18,10 @@ const Home = ( {darkMode, setDarkMode} ) => {
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [fullTime, setFullTime] = useState(false);
-    const [final, setFinal] = useState({description: '', location: '', fullTime: 'off'})
+    const [final, setFinal] = useState({description: '', location: '', fullTime: ''})
+
     const URL_BASE = 'https://cors.bridged.cc/https://jobs.github.com/positions.json';
-    const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}`
+    const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}&page=${anotherPage}`;
 
     // == Call API
     useEffect(() => {    
@@ -31,12 +32,13 @@ const Home = ( {darkMode, setDarkMode} ) => {
         (final.description || final.location || final.fullTime !== '') 
         ?   axios.get(`${URL_FILTER}`)
             .then(res => {
-                jobs = [];
+                anotherPage === 1 ? jobs = [] : jobs = [...data];
                 res.data.forEach(job => {
-                    jobs.push(job)
+                    jobs.push(job);
+                    console.log(jobs);
                 });
-                setData(jobs)
-                setLoading(false)
+                setData(jobs);
+                setLoading(false);
             })
             .catch(error => {
                 setError(error);
@@ -49,8 +51,8 @@ const Home = ( {darkMode, setDarkMode} ) => {
                 if(jobs.findIndex(j => j.id === job.id ) === -1) jobs.push(job)     
             });
 
-            setData(jobs)
-            setLoading(false)
+            setData(jobs);
+            setLoading(false);
         })
         .catch(error => {
             setError(error);
@@ -65,7 +67,7 @@ const Home = ( {darkMode, setDarkMode} ) => {
         setLoading(true)
     }
    
-
+   
     // == Search Final
     const finalSearch = (e) => {
         e.preventDefault()
@@ -79,33 +81,16 @@ const Home = ( {darkMode, setDarkMode} ) => {
         setFullTime('');
     }
     
-    const handleResetDescription = () => {
-        setFinal({
-            description: "",
-            location: location,
-            fullTime: fullTime ? "on" : "off"
-        })
-    }
-
-    const handleResetLocation = () => {
-        setFinal({
-            description: description,
-            location: "",
-            fullTime: fullTime ? "on" : "off"
-        })
-    }
-
-    const handleResetFullTime = () => {
+    // == Reset filter 
+    const handleResetFilter = (description, location, fullTime) => {
         setFinal({
             description : description,
             location: location,
-            fullTime: "off"
+            fullTime: fullTime 
         })
+        setAnotherPage(1)
     }
 
-
-    console.log(description);
-    console.log(final);
     return (
         <div className="home__page">
             <SearchBar 
@@ -116,18 +101,35 @@ const Home = ( {darkMode, setDarkMode} ) => {
                 setDescription = {setDescription}
                 setLocation = {setLocation}
                 setFullTime = {setFullTime}
-       
+                openModal= {openModal}
+                setOpenModal = {setOpenModal}
                 finalSearch = {finalSearch}
             />
 
-            
                 <div className="page__filter">
-                    {final.description && <span onClick={handleResetDescription}>{final.description}</span>}
-                    {final.location && <span onClick={handleResetLocation}>{final.location + ' x'}</span>}
-                    {final.fullTime !== 'off' && <span onClick={handleResetFullTime}>Only Full Time x</span>}
+                    {
+                        final.description && 
+                        <span 
+                            onClick={() => handleResetFilter('', final.location, final.fullTime)}
+                            >{final.description + ' x'}
+                        </span>
+                    }
+                    {
+                        final.location && 
+                        <span 
+                            onClick={() => handleResetFilter(final.description, '', final.fullTime)}
+                            >{final.location + ' x'}
+                        </span>
+                    }
+                    {
+                        final.fullTime === "on" && 
+                        <span 
+                            onClick={() => handleResetFilter(final.description, final.location, "off")}
+                            >Only Full Time x
+                        </span>
+                    }
                 </div>
-            
-
+       
             <div className="page__jobBoard">
                 {
                     data.map(job => {
@@ -142,6 +144,7 @@ const Home = ( {darkMode, setDarkMode} ) => {
                             title = {job.title}
                             company = {job.company}
                             location = {job.location}
+                            openModal = {openModal}
                         />     
                     
                     )})

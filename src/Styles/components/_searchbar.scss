@@ -122,3 +122,89 @@
 }
 
 
+
+.show__filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.507);
+  animation: popup .3s ease forwards ;
+  transform-origin: center;
+
+  .filter {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      width: 327px;
+      height: 217px;
+      position: absolute;
+      top: 187.5%;
+      color: blue;
+      background-color: var(--main--base);
+      border-radius: 6px;
+      box-shadow: 0 3px 6px rgb(0, 0, 0);
+      animation: popup .6s ease forwards;
+      transform: scale(0);
+      transform-origin: center;
+      z-index: 1000;
+    }
+   
+    &__location {
+      width: 100%;
+      padding: 24px 0 24px 24px;
+      border-bottom: 1px solid var(--border--search);
+      z-index: 1000;
+
+      img {
+        margin-right: 16px;
+      }
+      input {
+        padding: 0px;
+        // margin-left: 16px;
+        // padding: 24px 0 24px 24px;
+      }
+    }
+  }
+}
+
+.filter__fullTime {
+  width: 345px;
+  font-weight: 700;
+  margin-top: 24px;
+  z-index: 1000;
+
+  label {
+    width: 100%;
+    margin-left: 32px;
+
+    div {
+      cursor: pointer;
+      height: 24px;
+      width: 24px;
+      background-color: var(--bg--checkbox);
+      border-radius: 3px;
+    }
+
+    input:checked {
+
+      + div {
+        background: center / auto no-repeat url('../../assets/desktop/icon-check.svg');
+        background-color: #5964E0;
+      }
+    }
+    span {
+      color: var(--heading);
+      margin-left:16px ;
+      width: 74%;
+    }
+  }    
+}
+
+  
+@keyframes popup {
+  to {
+    transform: scale(1);
+  } 
+}
