@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/FEM-Github-jobs-API/static/css/main.1f60c9de.chunk.css",
-    "main.js": "/FEM-Github-jobs-API/static/js/main.35182544.chunk.js",
-    "main.js.map": "/FEM-Github-jobs-API/static/js/main.35182544.chunk.js.map",
+    "main.css": "/FEM-Github-jobs-API/static/css/main.002ef977.chunk.css",
+    "main.js": "/FEM-Github-jobs-API/static/js/main.7e27bd7c.chunk.js",
+    "main.js.map": "/FEM-Github-jobs-API/static/js/main.7e27bd7c.chunk.js.map",
     "runtime-main.js": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js",
     "runtime-main.js.map": "/FEM-Github-jobs-API/static/js/runtime-main.fd17c771.js.map",
-    "static/js/2.20eb2b20.chunk.js": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js",
-    "static/js/2.20eb2b20.chunk.js.map": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.map",
+    "static/css/2.ab75b8d7.chunk.css": "/FEM-Github-jobs-API/static/css/2.ab75b8d7.chunk.css",
+    "static/js/2.33b17ac7.chunk.js": "/FEM-Github-jobs-API/static/js/2.33b17ac7.chunk.js",
+    "static/js/2.33b17ac7.chunk.js.map": "/FEM-Github-jobs-API/static/js/2.33b17ac7.chunk.js.map",
     "index.html": "/FEM-Github-jobs-API/index.html",
-    "static/css/main.1f60c9de.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.1f60c9de.chunk.css.map",
-    "static/js/2.20eb2b20.chunk.js.LICENSE.txt": "/FEM-Github-jobs-API/static/js/2.20eb2b20.chunk.js.LICENSE.txt",
+    "static/css/2.ab75b8d7.chunk.css.map": "/FEM-Github-jobs-API/static/css/2.ab75b8d7.chunk.css.map",
+    "static/css/main.002ef977.chunk.css.map": "/FEM-Github-jobs-API/static/css/main.002ef977.chunk.css.map",
+    "static/js/2.33b17ac7.chunk.js.LICENSE.txt": "/FEM-Github-jobs-API/static/js/2.33b17ac7.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/FEM-Github-jobs-API/static/media/icon-check.7b769ecf.svg",
     "static/media/icon-filter.2471816d.svg": "/FEM-Github-jobs-API/static/media/icon-filter.2471816d.svg",
     "static/media/icon-location.325ff3d9.svg": "/FEM-Github-jobs-API/static/media/icon-location.325ff3d9.svg",
@@ -19,8 +21,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.fd17c771.js",
-    "static/js/2.20eb2b20.chunk.js",
-    "static/css/main.1f60c9de.chunk.css",
-    "static/js/main.35182544.chunk.js"
+    "static/css/2.ab75b8d7.chunk.css",
+    "static/js/2.33b17ac7.chunk.js",
+    "static/css/main.002ef977.chunk.css",
+    "static/js/main.7e27bd7c.chunk.js"
   ]
 }
