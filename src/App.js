@@ -8,19 +8,13 @@ import Job from './pages/Job';
 const App = () => {
 
 const [darkMode, setDarkMode] = useState(localStorage.getItem('theme') === 'light' ? true : false);
-const [openModal, setOpenModal] = useState(false);
 
   return (
     <BrowserRouter basename="/FEM-Github-jobs-API" >
 		<Header darkMode={darkMode} setDarkMode={setDarkMode}/>
 		<Switch>
 			<Route exact path="/">
-				<Home 
-					darkMode={darkMode} 
-					setDarkMode={setDarkMode}
-					openModal={openModal}
-					setOpenModal={setOpenModal}
-				 />
+				<Home darkMode={darkMode} setDarkMode={setDarkMode} />
 			</Route>
 			<Route path="/job/:id" component={Job} />
 		</Switch>

@@ -28,3 +28,34 @@
   animation: loading 1.5s infinite;  
   box-shadow: 0 0 0px 0px rgba(255, 255, 255, .01);
 }
+
+%inputFilter {
+  width: 345px;
+  font-weight: 700;
+
+  label {
+    width: 100%;
+    margin-left: 32px;
+
+    div {
+      cursor: pointer;
+      height: 24px;
+      width: 24px;
+      background-color: var(--bg--checkbox);
+      border-radius: 3px;
+    }
+
+    input:checked {
+
+      + div {
+        background: center / auto no-repeat url('../../assets/desktop/icon-check.svg');
+        background-color: #5964E0;
+      }
+    }
+    span {
+      color: var(--heading);
+      margin-left:16px ;
+      width: 74%;
+    }
+  }    
+}

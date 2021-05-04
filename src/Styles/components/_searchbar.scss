@@ -40,34 +40,7 @@
 			margin-left: 1.4375rem;
     }
 		&__fullTime {
-      width: 345px;
-			font-weight: 700;
-
-      label {
-        width: 100%;
-        margin-left: 32px;
-
-        div {
-          cursor: pointer;
-          height: 24px;
-          width: 24px;
-          background-color: var(--bg--checkbox);
-          border-radius: 3px;
-        }
-
-        input:checked {
-
-          + div {
-            background: center / auto no-repeat url('../../assets/desktop/icon-check.svg');
-            background-color: #5964E0;
-          }
-        }
-        span {
-          color: var(--heading);
-          margin-left:16px ;
-          width: 74%;
-        }
-      }    
+      @extend %inputFilter;
 		}
   }
 
@@ -121,17 +94,17 @@
   }
 }
 
-
-
 .show__filter {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.507);
-  animation: popup .3s ease forwards ;
   transform-origin: center;
+  z-index: 999;
 
   .filter {
     &__content {
@@ -140,7 +113,8 @@
       width: 327px;
       height: 217px;
       position: absolute;
-      top: 187.5%;
+      top: 30%;
+      left: 6%;
       color: blue;
       background-color: var(--main--base);
       border-radius: 6px;
@@ -152,57 +126,35 @@
     }
    
     &__location {
+      display: flex;
+      align-items: center;
       width: 100%;
       padding: 24px 0 24px 24px;
       border-bottom: 1px solid var(--border--search);
-      z-index: 1000;
 
       img {
         margin-right: 16px;
       }
       input {
         padding: 0px;
-        // margin-left: 16px;
-        // padding: 24px 0 24px 24px;
+        background-color: var(--main--base);
+        outline: none;
+        border: none;
+        color: var(--heading);
       }
     }
   }
 }
 
 .filter__fullTime {
-  width: 345px;
-  font-weight: 700;
-  margin-top: 24px;
-  z-index: 1000;
+  @extend %inputFilter;
 
   label {
-    width: 100%;
-    margin-left: 32px;
-
-    div {
-      cursor: pointer;
-      height: 24px;
-      width: 24px;
-      background-color: var(--bg--checkbox);
-      border-radius: 3px;
-    }
-
-    input:checked {
-
-      + div {
-        background: center / auto no-repeat url('../../assets/desktop/icon-check.svg');
-        background-color: #5964E0;
-      }
-    }
-    span {
-      color: var(--heading);
-      margin-left:16px ;
-      width: 74%;
-    }
-  }    
+    display: flex;
+    margin-top: 24px;
+  }
 }
 
-  
 @keyframes popup {
   to {
     transform: scale(1);
