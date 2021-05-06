@@ -4,22 +4,17 @@ import JobCard from '../components/JobCard';
 import axios from 'axios';
 import Button from '../components/Button';
 import time from '../components/utils/time';
-
 import SkeletonHome from '../components/skeletons/SkeletonHome';
 
-
-
-const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
+const Home = ( { darkMode, setDarkMode, openModal, setOpenModal } ) => {
 
     const [data, setData] = useState([]);                   
-    const [loading, setLoading] = useState(false);         
-    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);     
     const [anotherPage, setAnotherPage] = useState(1);
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [fullTime, setFullTime] = useState(false);
     const [final, setFinal] = useState({description: '', location: '', fullTime: ''})
-
     const URL_BASE = 'https://cors.bridged.cc/https://jobs.github.com/positions.json';
     const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}&page=${anotherPage}`;
 
@@ -28,24 +23,22 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
         setLoading(true);
         let jobs = [...data];
 
-        // == FILTER
-        (final.description || final.location || final.fullTime !== '') 
-        ?   axios.get(`${URL_FILTER}`)
+        //== FILTER
+        (!final.description || !final.location || !final.fullTime) 
+          ? axios.get(`${URL_FILTER}`)
             .then(res => {
                 anotherPage === 1 ? jobs = [] : jobs = [...data];
+                setLoading(true)
+
                 res.data.forEach(job => {
                     jobs.push(job);
-                    console.log(jobs);
+                    console.log('test')
                 });
                 setData(jobs);
                 setLoading(false);
             })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
-            }) 
-        // == Full PAGE
-        :   axios.get(`${URL_BASE}?page=${anotherPage}`)
+        // == FULL PAGE
+        : axios.get(`${URL_BASE}?page=${anotherPage}`)
             .then(res => {
                 res.data.forEach(job => { 
                 if(jobs.findIndex(j => j.id === job.id ) === -1) jobs.push(job)     
@@ -53,14 +46,11 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
 
             setData(jobs);
             setLoading(false);
-        })
-        .catch(error => {
-            setError(error);
-            setLoading(false);
         }) 
+        // eslint-disable-next-line
     }, [anotherPage, final])
-        
   
+    
     //  == Load next page
     const loadMore = () => {
         setAnotherPage(anotherPage + 1 )
@@ -91,6 +81,7 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
         setAnotherPage(1)
     }
 
+    console.log(data);
     return (
         <div className="home__page">
             <SearchBar 
@@ -108,7 +99,7 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
 
                 <div className="page__filter">
                     {
-                        final.description && 
+                        final.description &&
                         <span 
                             onClick={() => handleResetFilter('', final.location, final.fullTime)}
                             >{final.description + ' x'}
@@ -129,12 +120,16 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
                         </span>
                     }
                 </div>
-       
+
             <div className="page__jobBoard">
-                {
-                    data.map(job => {
+            {             
+                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} /> ) 
+            }
+
+            {
+                data.map(job => {
                     return (
-                       
+
                         <JobCard
                             key = {job.id}
                             id = {job.id}
@@ -145,19 +140,19 @@ const Home = ( {darkMode, setDarkMode, openModal, setOpenModal} ) => {
                             company = {job.company}
                             location = {job.location}
                             openModal = {openModal}
-                        />     
-                    
-                    )})
-                }
-                {
-                    
-                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} />)
+                        />
+                )})
+               
+            }
 
-                }
+            {             
+                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} /> )     
+            }
             </div>
             {
-                !loading && <Button typeBtn="loadMore" clic={loadMore}>Load More</Button>    
+                !loading && <Button typeBtn="loadMore" clic={loadMore}>Load More</Button>
             }
+            
         </div>
     );
 };

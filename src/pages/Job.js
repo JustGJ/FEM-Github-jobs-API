@@ -3,12 +3,12 @@ import axios from 'axios';
 import Button from '../components/Button';
 import time from '../components/utils/time';
 import SkeletonJob from '../components/skeletons/skeletonJob';
+import github from '../assets/desktop/github.png';
 
 const Job = (props) => {
 
     const [loading, setLoading] = useState(false);
     const [job, setJob] = useState('');
-
     const { match : { params } } = props
 
     useEffect(() => {
@@ -71,6 +71,14 @@ const Job = (props) => {
                         </div>    
                     </>           
                 }
+                <div className='made'>
+                    <div>
+                        <p>
+                            © 2021 Challenge <a href="https://www.frontendmentor.io/challenges" target="_blank" rel="noopener noreferrer">FrondEnd Mentor</a> by <a href="https://www.frontendmentor.io/profile/JustGJ" target="_blank" rel="noopener noreferrer">Jeff</a>&ensp;
+                        </p>
+                    </div>
+                    <a href="https://github.com/JustGJ" target="_blank" rel="noopener noreferrer"><img src={github} alt="github Jeff"/></a>
+                </div>
             </div>
         </>
      );

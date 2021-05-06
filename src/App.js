@@ -7,7 +7,7 @@ import Job from './pages/Job';
 
 const App = () => {
 
-const [darkMode, setDarkMode] = useState(localStorage.getItem('theme') === 'light' ? true : false);
+	const [darkMode, setDarkMode] = useState(localStorage.getItem('theme') === 'light' ? true : false);
 
   return (
     <BrowserRouter basename="/FEM-Github-jobs-API" >

@@ -9,41 +9,36 @@
         font-weight: 600;
     }
     &__toggle {
-        position: relative;
-        width: 3rem;
         display: flex;
         align-items: center;
-        right: 4rem;
-
-        .checkbox {
-            display: none;
-
-            &:checked + label .ball {           // == Lorsque c'est checked, cible uniquement .ball
-                transform: translateX(20px);
-            }
-        }
-        .label {
+        
+        button {
             position: relative;
-            display: block;
-            width: 48px;
-            height: 24px;
-            padding: 5px 8px;
-            background-color: #fff;
+            margin: 0 15px;
+            height: 20px; width: 40px;
+            border: 0;
             border-radius: 50px;
             cursor: pointer;
-            transform: scale(1.2);
-            box-shadow: 2px 1px 1px #333;
-            margin: 0 1rem;
-
-            .ball {
+            width: 48px;
+            height: 24px;  
+            background-color: #fff;
+    
+            .slider {
                 position: absolute;
-                background: #5964E0;     
-                border-radius: 50%;
+                height: 14px; width: 14px;
+                top: 4.6px; left: 4px;
                 height: 15px;
                 width: 15px;
-                top: .23rem;
-                transform: (translateX(0px));     // Pour que la boule se balade sur l'axe des X   
-                transition: transform 0.4s cubic-bezier(.45, -1.12, .35,1.78) ; 
+                border: 0;
+                border-radius: 50%;
+                background: #5964E0;     
+                transition: .3s;
+            }
+    
+            &.active {
+                .slider {
+                    transform: translateX(calc(100% + 10px));
+                }
             }
         }
     }
@@ -64,3 +59,4 @@
         background: url('../../assets/mobile/bg-pattern-header.svg');
     }
 }
+

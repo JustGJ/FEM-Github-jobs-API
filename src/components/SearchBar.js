@@ -5,25 +5,23 @@ import iconFilter from '../assets/mobile/icon-filter.svg';
 import Button from '../components/Button';
 import { useMediaQuery } from 'react-responsive'
 
-const SearchBar = ( {description, location, fullTime, finalSearch, setDescription, setLocation, setFullTime }) => {
+const SearchBar = ( { description, location, fullTime, finalSearch, setDescription, setLocation, setFullTime }) => {
 
     // == location and fullTime none
     const isTabletOrMobil = useMediaQuery({ query: '(max-width: 1110px)' });
     const isMobil = useMediaQuery({ query: '(max-width: 689px)' });
-
     const [openModal, setOpenModal] = useState(false);
-
 
     const handleShowFilter = () => {
         setOpenModal(true);
-        document.body.style.overflowY = 'hidden'
+        document.querySelector('html').style.overflow = 'hidden'
+    }   
 
-    }
 
     const finalSearchMobilClose = (e) => {
         finalSearch(e);
         setOpenModal(false);
-        document.body.style.overflowY = 'initial';
+        document.querySelector('html').style.overflow = 'initial'
     }
 
     return (
