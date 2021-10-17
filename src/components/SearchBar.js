@@ -5,7 +5,7 @@ import iconFilter from '../assets/mobile/icon-filter.svg';
 import Button from '../components/Button';
 import { useMediaQuery } from 'react-responsive'
 
-const SearchBar = ( { description, location, fullTime, finalSearch, setDescription, setLocation, setFullTime }) => {
+const SearchBar = ( { title, location, fullTime, finalSearch, setTitle, setLocation, setFullTime }) => {
 
     // == location and fullTime none
     const isTabletOrMobil = useMediaQuery({ query: '(max-width: 1110px)' });
@@ -24,6 +24,8 @@ const SearchBar = ( { description, location, fullTime, finalSearch, setDescripti
         document.querySelector('html').style.overflow = 'initial'
     }
 
+
+
     return (
         <>
         <div className="searchBar">
@@ -32,8 +34,8 @@ const SearchBar = ( { description, location, fullTime, finalSearch, setDescripti
                 <input 
                     type="text"  
                     placeholder={isTabletOrMobil ? "Filter by title ..." : "Filter by title, companies, expertise ..."}
-                    value={description} 
-                    onChange={(e) => setDescription(e.target.value)} 
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)} 
                 />
             </div>
             <div className="searchBar__location">

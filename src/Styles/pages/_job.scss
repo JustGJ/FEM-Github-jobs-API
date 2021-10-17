@@ -2,6 +2,15 @@
   max-width: 45.625rem;
   margin: 0 auto 4.5rem;
   background-color: var(--bg);
+ 
+  
+  h2 {
+    color: var(--heading);
+  }
+
+  p, ul {
+    color: #6E8098;
+  }
 
     &__header {
       @include display-align(flex, center);
@@ -10,12 +19,14 @@
       margin: 0 auto 50px auto;
       height: 140px;
       transform: translateY(-50px);
-    
+ 
       .header {
         &__image__container {
           @include display-align(flex, center);
           max-width: 140px;
           max-height: 140px;
+          width: 140px;
+          height: 100%;
                 
           img {
             width: 100%;
@@ -79,6 +90,7 @@
         margin-top: .5rem;
         color: #5964E0;
       }
+    
       &__main {
 
         p {
@@ -89,6 +101,13 @@
           color : var(--text--job) ;
         }
       }
+    }
+    &__title {
+      margin: 15px 0;
+    }
+    ul {
+      list-style-position: inside;
+      margin-top: 10px;
     }
   } 
   &__apply {

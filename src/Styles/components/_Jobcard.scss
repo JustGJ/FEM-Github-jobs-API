@@ -28,7 +28,11 @@
                 height: 3.125rem;
             }
         }
+        &__company {
+            font-weight: 600;
+        }
         &__time-type, &__company {
+            margin-bottom: 10px;
 
             color : #6E8098;
         }
@@ -46,6 +50,16 @@
             padding: 1.225rem 0 1rem 0;
             font-size: 0.875rem;
             color: #5964E0;
+        }
+        &__information {
+            color : #6E8098;
+            text-decoration: underline;
+            font-style: italic;
+            transition: .1s ease-in;
+
+            &:hover {
+                color: rgb(72, 104, 175);
+            } 
         }
     }
 }

@@ -1,158 +1,101 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import JobCard from '../components/JobCard';
-import axios from 'axios';
-import Button from '../components/Button';
-import time from '../components/utils/time';
-import SkeletonHome from '../components/skeletons/SkeletonHome';
+import jobs from '../assets/data.json';
 
-const Home = ( { darkMode, setDarkMode, openModal, setOpenModal } ) => {
-
-    const [data, setData] = useState([]);                   
-    const [loading, setLoading] = useState(false);     
-    const [anotherPage, setAnotherPage] = useState(1);
-    const [description, setDescription] = useState('');
+const Home = ({ darkMode, setDarkMode, openModal, setOpenModal }) => {
+    const data = jobs;
+    const [title, setTitle] = useState('');
     const [location, setLocation] = useState('');
     const [fullTime, setFullTime] = useState(false);
-    const [final, setFinal] = useState({description: '', location: '', fullTime: ''})
-    const URL_BASE = 'https://cors.bridged.cc/https://jobs.github.com/positions.json';
-    const URL_FILTER = `${URL_BASE}?description=${final.description}&location=${final.location}&full_time=${final.fullTime}&page=${anotherPage}`;
+    const [final, setFinal] = useState({ title: '', location: '', fullTime: '' });
 
-    // == Call API
-    useEffect(() => {    
-        setLoading(true);
-        let jobs = [...data];
-
-        //== FILTER
-        (!final.description || !final.location || !final.fullTime) 
-          ? axios.get(`${URL_FILTER}`)
-            .then(res => {
-                anotherPage === 1 ? jobs = [] : jobs = [...data];
-                setLoading(true)
-
-                res.data.forEach(job => {
-                    jobs.push(job);
-                    console.log('test')
-                });
-                setData(jobs);
-                setLoading(false);
-            })
-        // == FULL PAGE
-        : axios.get(`${URL_BASE}?page=${anotherPage}`)
-            .then(res => {
-                res.data.forEach(job => { 
-                if(jobs.findIndex(j => j.id === job.id ) === -1) jobs.push(job)     
-            });
-
-            setData(jobs);
-            setLoading(false);
-        }) 
-        // eslint-disable-next-line
-    }, [anotherPage, final])
-  
-    
-    //  == Load next page
-    const loadMore = () => {
-        setAnotherPage(anotherPage + 1 )
-        setLoading(true)
-    }
-   
-   
     // == Search Final
-    const finalSearch = (e) => {
-        e.preventDefault()
+    const finalSearch = async (e) => {
+        e.preventDefault();
         setFinal({
-            description: description,
+            title: title,
             location: location,
-            fullTime: fullTime ? "on" : "off"
-        })
-        setDescription('');
+            fullTime: fullTime ? 'on' : 'off',
+        });
+        setTitle('');
         setLocation('');
         setFullTime('');
-    }
-    
-    // == Reset filter 
-    const handleResetFilter = (description, location, fullTime) => {
-        setFinal({
-            description : description,
-            location: location,
-            fullTime: fullTime 
-        })
-        setAnotherPage(1)
-    }
+    };
 
-    console.log(data);
+    // == Reset filter
+    const handleResetFilter = (title, location, fullTime) => {
+        setFinal({
+            title: title,
+            location: location,
+            fullTime: fullTime,
+        });
+    };
+
     return (
         <div className="home__page">
-            <SearchBar 
-                darkMode={darkMode} setDarkMode={setDarkMode}
-                description = {description}
-                location = {location}
-                fullTime = {fullTime}
-                setDescription = {setDescription}
-                setLocation = {setLocation}
-                setFullTime = {setFullTime}
-                openModal= {openModal}
-                setOpenModal = {setOpenModal}
-                finalSearch = {finalSearch}
+            <SearchBar
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+                title={title}
+                location={location}
+                fullTime={fullTime}
+                setTitle={setTitle}
+                setLocation={setLocation}
+                setFullTime={setFullTime}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                finalSearch={finalSearch}
             />
 
-                <div className="page__filter">
-                    {
-                        final.description &&
-                        <span 
-                            onClick={() => handleResetFilter('', final.location, final.fullTime)}
-                            >{final.description + ' x'}
-                        </span>
-                    }
-                    {
-                        final.location && 
-                        <span 
-                            onClick={() => handleResetFilter(final.description, '', final.fullTime)}
-                            >{final.location + ' x'}
-                        </span>
-                    }
-                    {
-                        final.fullTime === "on" && 
-                        <span 
-                            onClick={() => handleResetFilter(final.description, final.location, "off")}
-                            >Only Full Time x
-                        </span>
-                    }
-                </div>
+            <div className="page__filter">
+                {final.title && (
+                    <span onClick={() => handleResetFilter('', final.location, final.fullTime)}>
+                        {final.title + ' x'}
+                    </span>
+                )}
+                {final.location && (
+                    <span onClick={() => handleResetFilter(final.title, '', final.fullTime)}>
+                        {final.location + ' x'}
+                    </span>
+                )}
+                {final.fullTime === 'on' && (
+                    <span onClick={() => handleResetFilter(final.title, final.location, 'off')}>
+                        Only Full Time x
+                    </span>
+                )}
+            </div>
 
             <div className="page__jobBoard">
-            {             
-                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} /> ) 
-            }
-
-            {
-                data.map(job => {
+                {data.map((job) => {
+                    if (
+                        job.company.indexOf(final.title) === -1 ||
+                        job.location.indexOf(final.location) === -1 ||
+                        (final.fullTime === 'on' && job.contract !== 'Full Time')
+                    ) {
+                        return null;
+                    }
                     return (
-
-                        <JobCard
-                            key = {job.id}
-                            id = {job.id}
-                            logo = {job.company_logo}
-                            created = {time(Date.now(), Date.parse(job.created_at))}
-                            type = {job.type}
-                            title = {job.title}
-                            company = {job.company}
-                            location = {job.location}
-                            openModal = {openModal}
-                        />
-                )})
-               
-            }
-
-            {             
-                    loading && [1,2,3,4,5,6].map(n => <SkeletonHome key={n} /> )     
-            }
+                        
+                            <JobCard
+                                key={job.id}
+                                id={job.id}
+                                logo={job.logo}
+                                description={job.description}
+                                website={job.website}
+                                requirements={job.requirements}
+                                role={job.role}
+                                logoBackground={job.logoBackground}
+                                postedAt={job.postedAt}
+                                contract={job.contract}
+                                company={job.company}
+                                location={job.location}
+                                openModal={openModal}
+                            />
+                       
+                    );
+                })}
             </div>
-            {
-                !loading && <Button typeBtn="loadMore" clic={loadMore}>Load More</Button>
-            }
-            
         </div>
     );
 };
