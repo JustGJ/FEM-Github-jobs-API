@@ -14,14 +14,4 @@ Vos utilisateurs doivent pouvoir :
 - Être en mesure de cliquer sur un emploi dans la page d'index afin qu'ils puissent lire plus d'informations et postuler à l'emploi
 - ** Bonus **: Choisissez le bon jeu de couleurs pour eux en fonction des préférences de leur ordinateur. _Hint_: Recherchez `prefers-color-scheme` dans CSS.
 
-⚠️ ** IMPORTANT ** ⚠️: L'API GitHub Jobs génère une erreur CORS lorsque vous essayez d'en extraire des données dans votre projet. Pour éviter cela, vous pouvez utiliser [cors.bridged.cc] (https://app.cors.bridged.cc/). Cela vous permet de préfixer votre URL de requête avec 
-`https: // cors.bridged.cc /` et la requête reviendra comme prévu. Donc, si vous vouliez demander tous les postes, 
-votre demande ressemblerait à ceci:
 
-```javascript
-fetch(
-  'https://cors.bridged.cc/https://jobs.github.com/positions.json'
-)
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-```
