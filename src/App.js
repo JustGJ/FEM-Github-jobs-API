@@ -10,7 +10,7 @@ const App = () => {
     );
 
     return (
-        <BrowserRouter basename="/FEM-Github-jobs-API">
+        <BrowserRouter basename="/Github-jobs-API">
             <Header darkMode={darkMode} setDarkMode={setDarkMode} />
             <Switch>
                 <Route exact path="/">

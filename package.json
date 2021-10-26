@@ -2,7 +2,7 @@
   "name": "github-jobs-api",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JustGJ.github.io/FEM-Github-jobs-API",
+  "homepage": "https://JustGJ.github.io/Github-jobs-API",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
